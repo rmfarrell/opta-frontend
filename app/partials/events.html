@@ -1,0 +1,41 @@
+<div id="events-view">
+    <div class="timeline">
+      <!--Body content-->
+
+      <ol>
+      	<li ng-repeat="event in events | filter:customFilter">
+			{{event.type_id | eA}}<br/>
+			{{event.team_id | teamText }}<br/>
+			{{event.player_id | playerText:[1,2,3]}}
+        </li>
+      </ol>
+    </div>
+    <div class="menu">
+		<form>
+			<fieldset>
+				<!--<input type="radio" value="812" data-ng-model="filterItem.store"/>SpVgg Greuther Fürth<br />
+				<input type="radio" value="1741" data-ng-model="filterItem.store"/>FC Erzgebirge Aue<br />
+				<input type="radio" value="" data-ng-model="filterItem.store"/>Both-->
+				
+				<label ng-repeat="item in filterTeams" >
+					<input type="radio" value="{{item[0]}}" data-ng-model="filterItem.store">
+					{{item[1]}}<br/>
+				</label>
+				<label>
+					<input type="radio" value="0" data-ng-model="filterItem.store"/>Both
+				</label>
+			</fieldset>
+			<fieldset id="playerfilter">
+				<div ng-repeat="team in players" class="{{team['@attributes'].uID}} team-menu"><h4>{{team.Name}}</h4>
+					<table>
+						<tr ng-repeat="player in team.Player">
+							<td><input ng-model="filterPlayers[player['@attributes'].uID]" type="checkbox" data-ng-true-value="{{player['@attributes'].uID}}"></td>
+							<td><strong>{{player.PersonName.First}} {{player.PersonName.Last}}</strong></td>
+							<td>{{player["@attributes"].Position}}</td>
+						</tr>
+					</table>
+				</div>
+			</fieldset>
+		</form>
+    </div>
+</div>

@@ -1,0 +1,53 @@
+<figure id="passMap">
+	
+	<ul id="passes">
+		<li ng-repeat="event in events | filter:customFilter | limitTo: 99999" ng-animate="fade" ng-style="style();" ng-click="showMoreInfo()" ng-class="isHome()">{{event.isHome}}<div class="success-indicator"></div></li>
+	</ul>
+	
+	<div class="pitch-lines">
+		<div class="center-circle"></div>
+		<div class="penalty-box left">
+			<div class="six-yard"></div>
+			<div class="goal"></div>
+		</div>
+		<div class="penalty-box right">
+			<div class="six-yard"></div>
+			<div class="goal"></div>
+		</div>
+	</div>
+</figure>
+<div class="menu">
+	<!--<p>
+		<label for="amount">Time</label>
+		<input type="text" id="amount" style="border: 0; color: #f6931f; font-weight: bold;" />
+	</p>-->
+	<div id="slider-vals">
+		<div id="slider-range" ></div>
+		<!--<input type="input" ng-model="filterTime.start" value="0"/>
+		<input type="input" ng-model="filterTime.end" value="90"/>-->
+		<input type="text" name="start-time" ng-model="filterTime.start" />
+		<input type="text" name="end-time" ng-model="filterTime.end" />
+	</div>
+	<form>
+		<fieldset>
+			<label ng-repeat="item in filterTeams" >
+				<input type="radio" value="{{item[0]}}" data-ng-model="filterItem.store">
+				{{item[1]}}<br/>
+			</label>
+			<label>
+				<input type="radio" value="0" data-ng-model="filterItem.store"/> Both
+			</label>
+		</fieldset>
+		<fieldset id="playerfilter">
+			<div ng-repeat="team in players" class="{{team['@attributes'].uID}} team-menu"><h4>{{team.Name}}</h4>
+				<table>
+					<tr ng-repeat="player in team.Player">
+						<td><input ng-model="filterPlayers[player['@attributes'].uID]" type="checkbox" data-ng-true-value="{{player['@attributes'].uID}}"></td>
+						<td><strong>{{player.PersonName.First}} {{player.PersonName.Last}}</strong></td>
+						<td>{{player["@attributes"].Position}}</td>
+					</tr>
+				</table>
+			</div>
+		</fieldset>
+	</form>
+</div>
