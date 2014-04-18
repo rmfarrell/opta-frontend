@@ -12,9 +12,9 @@ angular.module('phonecatServices', ['ngResource']).
 */
 
 //Not used at the moment
-angular.module('gameServices', ['ngResource']).
-    factory('Game', function($resource){
-  return $resource('../get_data.php', {}, {
-    query: {method:'GET', params:{game_id: 131956, 'feed_type' : 24}, isArray:true}
-  });
-});
+// angular.module('gameServices', ['ngResource']).
+//     factory('Game', function($resource){
+//   return $resource('../get_data.php', {}, {
+//     query: {method:'GET', params:{game_id: 131956, 'feed_type' : 24}, isArray:true}
+//   });
+// });

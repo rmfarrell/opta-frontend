@@ -10,9 +10,11 @@ var players = [];
 
 var homeTeam = 0;
 
-var gameID = 131898;
+function stats($scope, $http) {
+	
+}
 
-function passmap($scope, $http) {
+function passmap($scope, $http, $route) {
 	
 	$scope.filterItem = {store: 0};
 	
@@ -25,6 +27,8 @@ function passmap($scope, $http) {
 		start : 0,
 		end : 90
 	}
+	
+	$scope.gameId = $route.current.params.gameId;
 	
 	$scope.customFilter = function (data) {
 		
@@ -51,8 +55,6 @@ function passmap($scope, $http) {
 		var doPlayersMatch = (requestedPlayers.length < 1 || requestedPlayers.indexOf(matchedPlayer) !== -1) ? true : false;
 		
 		var inRange = (currentMinute >= $scope.filterTime.start && currentMinute <= $scope.filterTime.end) ? true : false;
-
-		console.log(inRange)
 		
 		if (requestedTeam != 0) {
 			
@@ -85,7 +87,7 @@ function passmap($scope, $http) {
 		}
 	}
 	
-	$http.get('../get_data.php?game_id=' + gameID + '&feed_type=f7').success(function(data) {
+	$http.get('../get_data.php?game_id=' + $scope.gameId + '&feed_type=f7').success(function(data) {
 		
 		//Populate global var MatchData w/ match data from service
 		$.extend(MatchData, data);
@@ -128,7 +130,7 @@ function passmap($scope, $http) {
 			}
 		});
 		
-		$http.get('../get_data.php?game_id=' + gameID + '&feed_type=f24').success(function(data) {
+		$http.get('../get_data.php?game_id=' + $scope.gameId + '&feed_type=f24').success(function(data) {
 			
 			//Events
 			var eventsAttr = [];
