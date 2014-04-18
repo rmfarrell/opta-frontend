@@ -2,7 +2,7 @@
  * In this file you should write your main styles. (or centralize your imports)
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
-/* line 17, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 17, ../../../../../../../Users/ryan.farrell/.rvm/gems/ruby-2.0.0-p353@railstutorial_rails_4_0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -24,50 +24,50 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 
-/* line 22, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 22, ../../../../../../../Users/ryan.farrell/.rvm/gems/ruby-2.0.0-p353@railstutorial_rails_4_0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 html {
   line-height: 1;
 }
 
-/* line 24, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 24, ../../../../../../../Users/ryan.farrell/.rvm/gems/ruby-2.0.0-p353@railstutorial_rails_4_0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 ol, ul {
   list-style: none;
 }
 
-/* line 26, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 26, ../../../../../../../Users/ryan.farrell/.rvm/gems/ruby-2.0.0-p353@railstutorial_rails_4_0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-/* line 28, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 28, ../../../../../../../Users/ryan.farrell/.rvm/gems/ruby-2.0.0-p353@railstutorial_rails_4_0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 caption, th, td {
   text-align: left;
   font-weight: normal;
   vertical-align: middle;
 }
 
-/* line 30, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 30, ../../../../../../../Users/ryan.farrell/.rvm/gems/ruby-2.0.0-p353@railstutorial_rails_4_0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 q, blockquote {
   quotes: none;
 }
-/* line 103, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 103, ../../../../../../../Users/ryan.farrell/.rvm/gems/ruby-2.0.0-p353@railstutorial_rails_4_0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 q:before, q:after, blockquote:before, blockquote:after {
   content: "";
   content: none;
 }
 
-/* line 32, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 32, ../../../../../../../Users/ryan.farrell/.rvm/gems/ruby-2.0.0-p353@railstutorial_rails_4_0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 a img {
   border: none;
 }
 
-/* line 116, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 116, ../../../../../../../Users/ryan.farrell/.rvm/gems/ruby-2.0.0-p353@railstutorial_rails_4_0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
   display: block;
 }
 
-/* line 13, ../sass/screen.scss */
+/* line 14, ../sass/screen.scss */
 body {
   background-color: #eeede1;
   color: #efefef;
@@ -75,12 +75,12 @@ body {
   font-size: 10px;
 }
 
-/* line 22, ../sass/screen.scss */
+/* line 23, ../sass/screen.scss */
 strong {
   font-weight: bold;
 }
 
-/* line 26, ../sass/screen.scss */
+/* line 27, ../sass/screen.scss */
 #passMap {
   width: 100%;
   margin: 0 auto;
@@ -89,7 +89,7 @@ strong {
   padding-bottom: 50%;
   background-color: #2c2c2c;
 }
-/* line 35, ../sass/screen.scss */
+/* line 36, ../sass/screen.scss */
 #passMap table {
   width: 100%;
   position: absolute;
@@ -97,7 +97,7 @@ strong {
   opacity: 0.2;
   display: none;
 }
-/* line 42, ../sass/screen.scss */
+/* line 43, ../sass/screen.scss */
 #passMap table td {
   text-align: right;
   border-left: 1px solid white;
@@ -105,12 +105,12 @@ strong {
   width: 10%;
   padding-bottom: 5%;
 }
-/* line 52, ../sass/screen.scss */
+/* line 53, ../sass/screen.scss */
 #passMap .pitch-lines {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=20);
   opacity: 0.2;
 }
-/* line 56, ../sass/screen.scss */
+/* line 57, ../sass/screen.scss */
 #passMap .pitch-lines .center-circle {
   position: absolute;
   left: 50%;
@@ -118,7 +118,7 @@ strong {
   height: 100%;
   border-left: 1px solid #999999;
 }
-/* line 63, ../sass/screen.scss */
+/* line 64, ../sass/screen.scss */
 #passMap .pitch-lines .center-circle:after {
   width: 100%;
   height: 0;
@@ -137,7 +137,7 @@ strong {
   -o-border-radius: 50%;
   border-radius: 50%;
 }
-/* line 79, ../sass/screen.scss */
+/* line 80, ../sass/screen.scss */
 #passMap .pitch-lines .penalty-box {
   position: absolute;
   width: 18%;
@@ -147,7 +147,7 @@ strong {
   border: 1px solid #999999;
   border-left: 0;
 }
-/* line 88, ../sass/screen.scss */
+/* line 89, ../sass/screen.scss */
 #passMap .pitch-lines .penalty-box .six-yard {
   width: 33.333%;
   border: 1px solid #999999;
@@ -157,29 +157,29 @@ strong {
   position: absolute;
   margin-top: -1px;
 }
-/* line 98, ../sass/screen.scss */
+/* line 99, ../sass/screen.scss */
 #passMap .pitch-lines .penalty-box.right {
   right: 0;
   border: 1px solid #999999;
   border-right: 0;
 }
-/* line 103, ../sass/screen.scss */
+/* line 104, ../sass/screen.scss */
 #passMap .pitch-lines .penalty-box.right .six-yard {
   border: 1px solid #999999;
   border-right: 0;
   right: 0;
 }
-/* line 109, ../sass/screen.scss */
+/* line 110, ../sass/screen.scss */
 #passMap .pitch-lines .penalty-box.right .goal {
   left: auto;
   right: -12%;
 }
 @media (min-width: 1000px) {
-  /* line 52, ../sass/screen.scss */
+  /* line 53, ../sass/screen.scss */
   #passMap .pitch-lines {
     border-width: 3px;
   }
-  /* line 124, ../sass/screen.scss */
+  /* line 125, ../sass/screen.scss */
   #passMap .pitch-lines .penalty-box,
   #passMap .pitch-lines .penalty-box .six-yard,
   #passMap .pitch-lines .penalty-box.right,
@@ -189,18 +189,18 @@ strong {
     border-width: 2px;
   }
 }
-/* line 131, ../sass/screen.scss */
+/* line 132, ../sass/screen.scss */
 #passMap ul#passes {
   position: absolute;
   height: 100%;
   width: 100%;
 }
-/* line 137, ../sass/screen.scss */
+/* line 138, ../sass/screen.scss */
 #passMap ul#passes li {
   position: absolute;
   display: block;
   height: 2px;
-  margin: -1% 0 0 -0.5%;
+  margin: -1% 0 0 -.5%;
   background-color: #e0705a;
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=40);
   opacity: 0.4;
@@ -211,7 +211,7 @@ strong {
   margin: 0;
   padding: 0;
 }
-/* line 151, ../sass/screen.scss */
+/* line 152, ../sass/screen.scss */
 #passMap ul#passes li .success-indicator {
   display: block;
   position: relative;
@@ -230,11 +230,11 @@ strong {
   border-left-style: solid;
   border-left-color: inherit;
 }
-/* line 170, ../sass/screen.scss */
+/* line 171, ../sass/screen.scss */
 #passMap ul#passes li .end {
   float: right;
 }
-/* line 174, ../sass/screen.scss */
+/* line 175, ../sass/screen.scss */
 #passMap ul#passes li.selected {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
   opacity: 1;
@@ -242,20 +242,20 @@ strong {
   -moz-box-shadow: 1px, 1px, 1px, black, 1;
   box-shadow: 1px, 1px, 1px, black, 1;
 }
-/* line 179, ../sass/screen.scss */
+/* line 180, ../sass/screen.scss */
 #passMap ul#passes li.selected:after {
   border-left: 10px solid #e3e854;
 }
-/* line 184, ../sass/screen.scss */
+/* line 185, ../sass/screen.scss */
 #passMap ul#passes .team-812 {
   background-color: #5ae0af;
 }
-/* line 188, ../sass/screen.scss */
+/* line 189, ../sass/screen.scss */
 #passMap ul#passes .team-812:after {
   border-left: 10px solid #5ae0af;
 }
 
-/* line 195, ../sass/screen.scss */
+/* line 196, ../sass/screen.scss */
 .infoModalWrapper {
   position: absolute;
   line-height: 1.3em;
@@ -272,12 +272,12 @@ strong {
   text-align: right;
   font-size: 1.3em;
 }
-/* line 210, ../sass/screen.scss */
+/* line 211, ../sass/screen.scss */
 .infoModalWrapper strong {
   font-weight: bold;
 }
 
-/* line 215, ../sass/screen.scss */
+/* line 216, ../sass/screen.scss */
 .test_dot {
   position: absolute;
   text-indent: -999em;
@@ -292,23 +292,23 @@ strong {
   border: 4px solid #e0b214;
   margin: 0;
 }
-/* line 225, ../sass/screen.scss */
+/* line 226, ../sass/screen.scss */
 .test_dot.origin {
   background-color: #1bd6ec;
   border: 4px solid #bdeaef;
 }
 
-/* line 231, ../sass/screen.scss */
+/* line 232, ../sass/screen.scss */
 #events-view {
   font-size: 1.1em;
   color: #333;
 }
-/* line 236, ../sass/screen.scss */
+/* line 237, ../sass/screen.scss */
 #events-view .timeline {
   height: 400px;
   overflow-y: scroll;
 }
-/* line 243, ../sass/screen.scss */
+/* line 244, ../sass/screen.scss */
 #events-view .timeline ol li {
   background-color: #f5f4de;
   border: 1px solid #999;
@@ -360,4 +360,67 @@ strong {
 .menu #slider-range {
   width: 90%;
   margin: 2em auto;
+}
+
+/* line 1, ../sass/_game-navigation.scss */
+#game-navigation {
+  resize: vertical;
+  height: 28em;
+  overflow-y: auto;
+  overflow-x: none;
+  position: relative;
+  background-color: #a8bb93;
+  -webkit-box-shadow: inset 0 0 40px #616f51;
+  -moz-box-shadow: inset 0 0 40px #616f51;
+  box-shadow: inset 0 0 40px #616f51;
+}
+/* line 10, ../sass/_game-navigation.scss */
+#game-navigation a {
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: .9em;
+  text-decoration: none;
+  text-shadow: 1px 1px 1px black;
+}
+/* line 18, ../sass/_game-navigation.scss */
+#game-navigation a:hover {
+  color: #000;
+  text-shadow: none;
+}
+/* line 24, ../sass/_game-navigation.scss */
+#game-navigation td {
+  padding: .6em 1em;
+}
+/* line 28, ../sass/_game-navigation.scss */
+#game-navigation tr:nth-child(3n+0) {
+  border-bottom: 1px dotted #616f51;
+}
+/* line 32, ../sass/_game-navigation.scss */
+#game-navigation .date {
+  width: 5em;
+}
+/* line 36, ../sass/_game-navigation.scss */
+#game-navigation .home, #game-navigation .away {
+  width: 11em;
+}
+/* line 40, ../sass/_game-navigation.scss */
+#game-navigation .map {
+  width: 2em;
+}
+/* line 44, ../sass/_game-navigation.scss */
+#game-navigation table {
+  color: #444;
+  font-size: 1.5em;
+  margin: 0 auto;
+}
+/* line 50, ../sass/_game-navigation.scss */
+#game-navigation .v {
+  width: 1em;
+  font-style: oblique;
+  color: #616f51;
+}
+/* line 56, ../sass/_game-navigation.scss */
+#game-navigation tr {
+  line-height: 1.3em;
 }

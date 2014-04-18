@@ -5,6 +5,7 @@
 
 @import "compass/reset";
 @import "compass/css3";
+@import "vars";
 
 @media (min-width: 900px) {
 	$fieldBorder : 4px;		
@@ -250,7 +251,6 @@ strong {
 			}
 		}
 	}
-	
 }
 
 .menu {
@@ -291,3 +291,5 @@ strong {
 		margin: 2em auto;
 	}
 }
+
+@import "game-navigation"
