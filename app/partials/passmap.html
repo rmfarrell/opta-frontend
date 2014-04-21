@@ -1,8 +1,12 @@
 <figure id="passMap">
 	
-	<ul id="passes">
-		<li ng-repeat="event in events | filter:customFilter | limitTo: 99999" ng-animate="fade" ng-style="style();" ng-click="showMoreInfo()" ng-class="isHome()">{{event.isHome}}<div class="success-indicator"></div></li>
-	</ul>
+		<div id="passes">
+			<div class="pass" ng-repeat="event in events | filter:customFilter | limitTo: 99999" ng-animate="fade" ng-style="style();" ng-click="showMoreInfo()" ng-class="isHome()">
+				{{event.isHome}}
+				<div class="arrowhead"></div>
+			</div>
+		</div>
+
 	
 	<div class="pitch-lines">
 		<div class="center-circle"></div>
@@ -15,6 +19,12 @@
 			<div class="goal"></div>
 		</div>
 	</div>
+	
+	<figcaption id="pass-info">
+		<a href="javascript:void(0)" id="pass-info-close">x</a>
+		<p><!-- pass info here --></p>
+	</figcaption>
+	
 </figure>
 <div class="menu">
 	<!--<p>

@@ -19,7 +19,7 @@
 </head>
 <body>
 	<nav id="game-navigation">
-		<a href="#" id="game-nav-toggle"></a>
+		<a id="game-nav-toggle"></a>
 		<table>
 			<tr>
 				<td class="date">2007-08-10</td>

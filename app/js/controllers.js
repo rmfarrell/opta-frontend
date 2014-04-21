@@ -30,6 +30,15 @@ function passmap($scope, $http, $route) {
 	
 	$scope.gameId = $route.current.params.gameId;
 	
+	var $passInfo = $('#pass-info');
+	var $passMap = $('#passMap');
+
+	$passMap.delegate('#pass-info-close', 'click', function(e) {
+		
+		e.preventDefault();
+		$passInfo.fadeOut();
+	})
+	
 	$scope.customFilter = function (data) {
 		
 		var requestedTeam = $scope.filterItem.store;
@@ -187,7 +196,8 @@ function passmap($scope, $http, $route) {
 					'background-color' : 'hsla('  + awayColorOffset + ', 80%,'  + isSuccessOffset + '%, 1)',
 					'border-color' : 'hsla('  + awayColorOffset + ', 80%,'  + isSuccessOffset + '%, 1)'
 				};
-			}
+			};
+			
 			
 			$scope.showMoreInfo = function() {
 				
@@ -201,15 +211,15 @@ function passmap($scope, $http, $route) {
 				moContent += 'outcome : ' + ngThis.outcome + '<br/>';
 				
 				$(event.target.parentNode).children().removeClass('selected');
-				
+				http://imgur.com/a/3jyA3
 				$(event.target).addClass('selected');
 				
-				var mo = new InfoModal(event.target,  {
-				
-					content : moContent,
-					left : ngThis.x + '%',
-					top : ngThis.y - 2 + '%'
-				});
+				// var mo = new InfoModal(event.target,  {
+				// 				
+				// 					content : moContent,
+				// 					left : ngThis.x + '%',
+				// 					top : ngThis.y - 2 + '%'
+				// 				});
 				
 				mo.init();
 				
