@@ -100,6 +100,15 @@ angular.module('eventTypeFilter', [])
 	.filter('teamText', function() {
 		
 	})
+	.filter('isPass', function() {
+		
+		return function(input, expression, comparator) {
+			
+			if (passiness.indexOf(input) === -1) return false;
+
+				else return true;
+		}
+	})
 	.filter('playerText', function() {
 		
 		return function(input, expression, comparator) {

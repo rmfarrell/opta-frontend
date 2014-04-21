@@ -50,9 +50,7 @@ function passmap($scope, $http, $route, $filter) {
 		
 		var currentMinute = data["@attributes"].min;
 		
-		//if not a pass
-		if($scope.passyActions(data) === false)
-			return false;
+		if (!$filter('isPass')(parseInt(data["@attributes"].type_id))) return false;
 			
 		$.each($scope.filterPlayers, function(i,v) {
 			
@@ -77,13 +75,6 @@ function passmap($scope, $http, $route, $filter) {
 			
 	    else return false;
 	};
-			
-	$scope.passyActions = function(item) {
-		
-		if (passiness.indexOf(parseInt(item["@attributes"].type_id)) != -1) return true;
-		
-			else return false;
-	}
 	
 	//Populate game metadata
 	$http.get('../get_data.php?game_id=' + $scope.gameId + '&feed_type=f7').success(function(data) {
@@ -199,7 +190,7 @@ function passmap($scope, $http, $route, $filter) {
 					outcome = (outcomeInt > 0) ? 'completed' : 'failed'
 				
 				moContent += '<strong class="time">' + ngThis.min + '&rsquo;' + ngThis.sec + '&rdquo;' + '</strong><br/>';
-					moContent += player[1] + " " + player[2] + '<br/>';
+				moContent += player[1] + " " + player[2] + '<br/>';
 				moContent += outcome + " " + eventAppendix[ngThis.type_id - 1].toLowerCase();
 				
 				$(event.target.parentNode).children().removeClass('selected');
@@ -232,16 +223,16 @@ function passmap($scope, $http, $route, $filter) {
 		slide: function( event, ui ) {
 			
 			var el = $('input[name=start-time]');
-            var scope = angular.element(el[0]).scope();
-            scope.$apply(function() {
-                scope.filterTime.start = ui.values[0];
-            });
+			var scope = angular.element(el[0]).scope();
+			scope.$apply(function() {
+				scope.filterTime.start = ui.values[0];
+			});
 
 			var elEnd = $('input[name=end-time]');
-            var scopeEnd = angular.element(elEnd[0]).scope();
-            scopeEnd.$apply(function() {
-                scopeEnd.filterTime.end = ui.values[1];
-            });
+			var scopeEnd = angular.element(elEnd[0]).scope();
+			scopeEnd.$apply(function() {
+				scopeEnd.filterTime.end = ui.values[1];
+			});
 		}
 	});
 	
