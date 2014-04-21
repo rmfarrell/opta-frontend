@@ -14,7 +14,7 @@ function stats($scope, $http) {
 	
 }
 
-function passmap($scope, $http, $route) {
+function passmap($scope, $http, $route, $filter) {
 	
 	$scope.filterItem = {store: 0};
 	
@@ -31,9 +31,10 @@ function passmap($scope, $http, $route) {
 	$scope.gameId = $route.current.params.gameId;
 	
 	var $passInfo = $('#pass-info');
+	
 	var $passMap = $('#passMap');
 
-	$passMap.delegate('#pass-info-close', 'click', function(e) {
+	$passInfo.find('#pass-info-close').click(function(e) {
 		
 		e.preventDefault();
 		$passInfo.fadeOut();
@@ -70,32 +71,21 @@ function passmap($scope, $http, $route) {
 			requestedTeam = parseInt(requestedTeam.split('t')[1]);
 		}
 		
-		if (data["@attributes"].team_id == requestedTeam && doPlayersMatch && inRange) {
+		if (data["@attributes"].team_id == requestedTeam && doPlayersMatch && inRange) return true;
 			
-			return true;
+	    else if (requestedTeam == 0 && doPlayersMatch && inRange) return true;
 			
-	    } else if (requestedTeam == 0 && doPlayersMatch && inRange) {
-		
-			return true;
-			
-	    } else {
-		
-			return false;		
-		}
+	    else return false;
 	};
 			
 	$scope.passyActions = function(item) {
 		
-		if (passiness.indexOf(parseInt(item["@attributes"].type_id)) != -1) {
-			
-			return true;
-			
-		} else {
-			
-			return false;
-		}
+		if (passiness.indexOf(parseInt(item["@attributes"].type_id)) != -1) return true;
+		
+			else return false;
 	}
 	
+	//Populate game metadata
 	$http.get('../get_data.php?game_id=' + $scope.gameId + '&feed_type=f7').success(function(data) {
 		
 		//Populate global var MatchData w/ match data from service
@@ -139,6 +129,7 @@ function passmap($scope, $http, $route) {
 			}
 		});
 		
+		//Populate Event data
 		$http.get('../get_data.php?game_id=' + $scope.gameId + '&feed_type=f24').success(function(data) {
 			
 			//Events
@@ -201,18 +192,21 @@ function passmap($scope, $http, $route) {
 			
 			$scope.showMoreInfo = function() {
 				
-				var ngThis = this.event["@attributes"]
-				
-				var moContent = '';
+				var ngThis = this.event["@attributes"],
+					moContent = '',
+					player = getPlayerNameFromId(players, ngThis.player_id),
+					outcomeInt = parseInt(ngThis.outcome),
+					outcome = (outcomeInt > 0) ? 'completed' : 'failed'
 				
 				moContent += '<strong class="time">' + ngThis.min + '&rsquo;' + ngThis.sec + '&rdquo;' + '</strong><br/>';
-				moContent += eventAppendix[ngThis.type_id - 1] + '<br/>';
-				moContent += 'player: ' + ngThis.player_id + '<br/>';
-				moContent += 'outcome : ' + ngThis.outcome + '<br/>';
+					moContent += player[1] + " " + player[2] + '<br/>';
+				moContent += outcome + " " + eventAppendix[ngThis.type_id - 1].toLowerCase();
 				
 				$(event.target.parentNode).children().removeClass('selected');
-				http://imgur.com/a/3jyA3
+				
 				$(event.target).addClass('selected');
+				
+				$passInfo.fadeIn().find('.content').html(moContent);
 				
 				// var mo = new InfoModal(event.target,  {
 				// 				
@@ -221,9 +215,9 @@ function passmap($scope, $http, $route) {
 				// 					top : ngThis.y - 2 + '%'
 				// 				});
 				
-				mo.init();
+				//mo.init();
 				
-				var targ = getCoords(this.event);
+				//var targ = getCoords(this.event);
 			}
 		});
 		

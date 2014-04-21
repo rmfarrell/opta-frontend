@@ -94,3 +94,16 @@ function getRelativeTime (min,sec) {
 	
 	return min*60 + sec;
 }
+
+function getPlayerNameFromId(playersArr, id) {
+	
+	var id = 'p' + id,
+	p;
+	
+	playersArr.forEach(function(player,i) {
+		
+		if (player[0] == id) return p = player;
+	});
+	
+	return p;
+}

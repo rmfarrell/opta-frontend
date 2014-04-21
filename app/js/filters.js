@@ -102,10 +102,10 @@ angular.module('eventTypeFilter', [])
 	})
 	.filter('playerText', function() {
 		
-		return function(input, attr) {
+		return function(input, expression, comparator) {
 			
 			for (var x = 0; x < players.length; x++) {
-			 	
+				
 				if (players[x][0].indexOf(input) !== -1) {
 					
 					var playerInfo = '';
@@ -113,7 +113,7 @@ angular.module('eventTypeFilter', [])
 					for (var y = 0; y < attr.length; y ++) {
 						
 						playerInfo += players[x][attr[y]] + ' ';
-						
+					
 					}
 					
 					return playerInfo;
