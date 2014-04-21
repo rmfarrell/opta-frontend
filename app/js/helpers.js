@@ -107,3 +107,12 @@ function getPlayerNameFromId(playersArr, id) {
 	
 	return p;
 }
+
+function isSuccessfullAction(e) {
+	
+	//If Goal
+	if (e.type_id == 16) return true;
+	
+		//if completed pass
+		else if (parseInt(e.type_id) == 1 && e.outcome == 1) return true;
+}

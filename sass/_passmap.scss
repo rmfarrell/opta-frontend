@@ -74,10 +74,10 @@
 		
 		.center-circle {
 			position: absolute;
-	        left: 50%;
-	        width: 20%;
-	        height: 100%;
-	        border-left: 1px solid $pitchlines;
+			left: 50%;
+			width: 20%;
+			height: 100%;
+			border-left: 1px solid $pitchlines;
 	
 			&:after {
 				
@@ -153,6 +153,27 @@
 		height: 100%;
 		width: 100%;
 		
+		.shot {
+			position: absolute;
+			display: block;
+			height: 14px;
+			width: 14px;
+			border-radius: 50%;
+			z-index: 30;
+			@include opacity(.8);
+			
+			&.miss:after {
+				content: "";
+				width: 10px;
+				height: 10px;
+				border-radius: 50%;
+				background-color: $pitch;
+				position: absolute;
+				left: 2px;
+				top: 2px;
+			};
+		}
+		
 		.pass {
 			position: absolute;
 			display: block;
@@ -186,20 +207,23 @@
 				border-left-color: inherit;	
 			}
 			
+			
+			
+			&.selected:after {
+				border-left: 10px solid #e3e854;				
+			}
+			
 			.end {
 				float: right;
 			}
-			
-			&.selected {
-				
-				@include opacity(1);
-				@include box-shadow(1px,1px,1px,black, 1);
-				
-				&:after {
-			        border-left: 10px solid #e3e854;				
-				}
-			}
 		}
+		
+		.selected {
+			
+			@include opacity(1);
+			@include box-shadow(1px,1px,1px,black, 1);
+		}
+		
 		.team-812 {
 			
 			background-color: #5ae0af;

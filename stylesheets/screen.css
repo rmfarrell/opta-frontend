@@ -410,6 +410,28 @@ strong {
   width: 100%;
 }
 /* line 156, ../sass/_passmap.scss */
+#passMap #passes .shot {
+  position: absolute;
+  display: block;
+  height: 14px;
+  width: 14px;
+  border-radius: 50%;
+  z-index: 30;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
+  opacity: 0.8;
+}
+/* line 165, ../sass/_passmap.scss */
+#passMap #passes .shot.miss:after {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #2c2c2c;
+  position: absolute;
+  left: 2px;
+  top: 2px;
+}
+/* line 177, ../sass/_passmap.scss */
 #passMap #passes .pass {
   position: absolute;
   display: block;
@@ -425,7 +447,7 @@ strong {
   margin: 0;
   padding: 0;
 }
-/* line 170, ../sass/_passmap.scss */
+/* line 191, ../sass/_passmap.scss */
 #passMap #passes .pass .arrowhead {
   display: block;
   position: relative;
@@ -444,27 +466,27 @@ strong {
   border-left-style: solid;
   border-left-color: inherit;
 }
-/* line 189, ../sass/_passmap.scss */
+/* line 212, ../sass/_passmap.scss */
+#passMap #passes .pass.selected:after {
+  border-left: 10px solid #e3e854;
+}
+/* line 216, ../sass/_passmap.scss */
 #passMap #passes .pass .end {
   float: right;
 }
-/* line 193, ../sass/_passmap.scss */
-#passMap #passes .pass.selected {
+/* line 221, ../sass/_passmap.scss */
+#passMap #passes .selected {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
   opacity: 1;
   -webkit-box-shadow: 1px, 1px, 1px, black, 1;
   -moz-box-shadow: 1px, 1px, 1px, black, 1;
   box-shadow: 1px, 1px, 1px, black, 1;
 }
-/* line 198, ../sass/_passmap.scss */
-#passMap #passes .pass.selected:after {
-  border-left: 10px solid #e3e854;
-}
-/* line 203, ../sass/_passmap.scss */
+/* line 227, ../sass/_passmap.scss */
 #passMap #passes .team-812 {
   background-color: #5ae0af;
 }
-/* line 207, ../sass/_passmap.scss */
+/* line 231, ../sass/_passmap.scss */
 #passMap #passes .team-812:after {
   border-left: 10px solid #5ae0af;
 }

@@ -70,6 +70,7 @@ var eventAppendix = [
 
 var passiness = [1];
 var shots = [16, 13, 14];
+var passOrShot = passiness.concat(shots)
 
 /* Filters */
 angular.module('eventTypeFilter', [])
@@ -92,13 +93,21 @@ angular.module('eventTypeFilter', [])
 				if (teams[x].indexOf(input) !== -1) {
 					
 					return teams[x][1];
-					
 				}
 			}
 		};
 	})
 	.filter('teamText', function() {
 		
+	})
+	.filter('isPassOrShot', function() {
+		
+		return function(input, expression, comparator) {
+			
+			if (passOrShot.indexOf(input) === -1) return false;
+			
+				else return true;
+		};
 	})
 	.filter('isPass', function() {
 		

@@ -50,8 +50,10 @@ function passmap($scope, $http, $route, $filter) {
 		
 		var currentMinute = data["@attributes"].min;
 		
-		if (!$filter('isPass')(parseInt(data["@attributes"].type_id))) return false;
-			
+		//Is the action a pass or a shot?
+		if (!$filter('isPassOrShot')(parseInt(data["@attributes"].type_id))) return false;
+		
+		//Is the player checked?
 		$.each($scope.filterPlayers, function(i,v) {
 			
 			if (v === true) {
@@ -62,8 +64,10 @@ function passmap($scope, $http, $route, $filter) {
 		
 		var doPlayersMatch = (requestedPlayers.length < 1 || requestedPlayers.indexOf(matchedPlayer) !== -1) ? true : false;
 		
+		//Is the action within specified time slice
 		var inRange = (currentMinute >= $scope.filterTime.start && currentMinute <= $scope.filterTime.end) ? true : false;
 		
+		//Is the action part of the correct team?
 		if (requestedTeam != 0) {
 			
 			requestedTeam = parseInt(requestedTeam.split('t')[1]);
@@ -138,20 +142,32 @@ function passmap($scope, $http, $route, $filter) {
 			
 			$scope.players = MatchData.SoccerDocument.Team;
 			
-	    	$scope.events = richEvents;
+	    $scope.events = richEvents;
 			
-			$scope.isHome = function() {
+			$scope.addClasses = function() {
 				
-				return 'team-' + this.event["@attributes"].team_id;
+				var c = "";
+				
+				var t = parseInt(this.event["@attributes"].type_id);
+				
+				if (t === 1) c += " pass";
+				
+					else if (t === 16) c += " shot goal"
+				
+					else if (shots.indexOf(t) !== -1) c += " shot miss";
+				
+				return c;
 			}
 		
-			$scope.style = function() {
+			$scope.style = function(element) {
 				
 				var style = "";
 				
+				var arrowHead = '<div class="arrowhead"></div>';
+				
 				var toCoords = getCoords(this.event);
 				
-				var atts = this.event["@attributes"]
+				var atts = this.event["@attributes"];
 				
 				var fromCoords = {
 					left : atts.x,
@@ -168,7 +184,7 @@ function passmap($scope, $http, $route, $filter) {
 				
 				//var rgbVar = pickColor(atts.min, atts.sec);d
 				
-				var isSuccessOffset = (atts.outcome > 0) ? 65 : 30;
+				var isSuccessOffset = (isSuccessfullAction(this.event["@attributes"])) ? 65 : 30;
 				
 				return {
 					'width' : w + '%',
@@ -187,7 +203,7 @@ function passmap($scope, $http, $route, $filter) {
 					moContent = '',
 					player = getPlayerNameFromId(players, ngThis.player_id),
 					outcomeInt = parseInt(ngThis.outcome),
-					outcome = (outcomeInt > 0) ? 'completed' : 'failed'
+					outcome = (isSuccessfullAction(ngThis)) ? 'completed' : 'failed'
 				
 				moContent += '<strong class="time">' + ngThis.min + '&rsquo;' + ngThis.sec + '&rdquo;' + '</strong><br/>';
 				moContent += player[1] + " " + player[2] + '<br/>';
@@ -196,6 +212,8 @@ function passmap($scope, $http, $route, $filter) {
 				$(event.target.parentNode).children().removeClass('selected');
 				
 				$(event.target).addClass('selected');
+				
+				console.log(this.event)
 				
 				$passInfo.fadeIn().find('.content').html(moContent);
 				
