@@ -2,7 +2,10 @@
 	<table>
 		<tr ng-repeat="player in players">
 			<td>{{player[1]}} {{player[2]}}</td>
-			<td></td>
+			<!-- <td>{{(data|filter:query).length}}</td> -->
+			<td>{{(events | filter:byPlayer).length}}</td>
 		</tr>
 	</table>
+	
+	<!-- {{events}} -->
 </div>

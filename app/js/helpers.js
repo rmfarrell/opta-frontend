@@ -116,3 +116,33 @@ function isSuccessfullAction(e) {
 		//if completed pass
 		else if (parseInt(e.type_id) == 1 && e.outcome == 1) return true;
 }
+
+
+attachStats = {
+	
+	init: function(p) {
+		
+		var stats = {		
+			
+			passes : {
+				successful: 0,
+				failed: 0
+			},
+		
+			shots : {
+				successful: 0,
+				failed: 0
+			}
+		}
+		
+		p.push(stats)
+	},
+	
+	passes : function(player, wasGood) {
+		
+		if (wasGood) return players.passes.successful += 1 
+			
+			else return players.passes.successful += 1;
+	}
+}
+;

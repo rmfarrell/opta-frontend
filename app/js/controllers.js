@@ -22,9 +22,7 @@ app.controller("pullData", function ($scope, $route, gameService) {
 	
 	$scope.events,
 	
-	$scope.teams,
-	
-	$scope.filterTeams = [];
+	$scope.teams;
 	
 	var _matchData = {};
 	
@@ -75,14 +73,28 @@ app.controller("pullData", function ($scope, $route, gameService) {
 	});
 });
 
-
 app.controller("stats", function ($scope, $http, $route, $filter, $controller) {
 	
 	//Inherit gets from pullData controller
 	$controller("pullData", {$scope: $scope});
 	
-	$scope.getEvents.success(function() {
+	$scope.getGame.success(function(data) {
 		
+		//initialize a stats object for each player array
+		$scope.players.forEach(function(p) {
+			
+			return attachStats.init(p);
+		});
+	});//End of Get Game
+	
+
+	
+	$scope.getEvents.success(function(data) {
+		
+		// $scope.get = function(e) {
+		// 	    
+		// 	    console.log($filter('isPass')(e));
+		// 		}
 	});
 	
 });
@@ -138,7 +150,7 @@ app.controller("passmap", function ($scope, $filter, $controller) {
 		});
 	});
 
-	$scope.customFilter = function (data) {
+	$scope.mapFilter = function (data) {
 	
 		var requestedTeam = $scope.filterItem.store;
 	
@@ -177,8 +189,6 @@ app.controller("passmap", function ($scope, $filter, $controller) {
 		
 	    else return false;
 	};
-	
-	
 	
 	//Populate Event data
 	$scope.getEvents.success(function(data) {

@@ -74,6 +74,13 @@ var passOrShot = passiness.concat(shots)
 
 /* Filters */
 angular.module('eventTypeFilter', [])
+	.filter('byPlayer', function() {
+		
+		return function(input, expression, comparator) {
+			
+			return [];
+		};
+	})
 	.filter('eA', function() {
 
 		return function(input) {
@@ -96,9 +103,6 @@ angular.module('eventTypeFilter', [])
 				}
 			}
 		};
-	})
-	.filter('teamText', function() {
-		
 	})
 	.filter('isPassOrShot', function() {
 		
