@@ -495,3 +495,11 @@ strong {
 #stats {
   color: black;
 }
+/* line 4, ../sass/_stats.scss */
+#stats table {
+  font-size: 1.3em;
+}
+/* line 7, ../sass/_stats.scss */
+#stats table td {
+  padding: .45em;
+}

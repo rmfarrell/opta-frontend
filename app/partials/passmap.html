@@ -48,7 +48,7 @@
 			</label>
 		</fieldset>
 		<fieldset id="playerfilter">
-			<div ng-repeat="team in players" class="{{team['@attributes'].uID}} team-menu"><h4>{{team.Name}}</h4>
+			<div ng-repeat="team in teams" class="{{team['@attributes'].uID}} team-menu"><h4>{{team.Name}}</h4>
 				<table>
 					<tr ng-repeat="player in team.Player">
 						<td><input ng-model="filterPlayers[player['@attributes'].uID]" type="checkbox" data-ng-true-value="{{player['@attributes'].uID}}"></td>
