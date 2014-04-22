@@ -1,17 +1,17 @@
 'use strict';
 
 /* App Module */
-angular.module('opta', ['eventTypeFilter']).
+var app = angular.module('opta', ['eventTypeFilter']).
   config(['$routeProvider', function($routeProvider) {
   $routeProvider
       //when('/games', {templateUrl: 'partials/events.html',   controller: timeline}).
       .when('/map/:gameId', {
 				templateUrl: 'partials/passmap.html',
-				controller: passmap
+				controller: 'passmap'
 			})
-			.when('/stats', {
+			.when('/stats/:gameId', {
 				templateUrl: 'partials/stattables.html',
-				controller: stats
+				controller: 'stats'
 			})
       //when('/phones/:phoneId', {templateUrl: 'partials/phone-detail.html', controller: PhoneDetailCtrl}).
       .otherwise({redirectTo: '/map'});

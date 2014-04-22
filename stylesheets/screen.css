@@ -413,8 +413,8 @@ strong {
 #passMap #passes .shot {
   position: absolute;
   display: block;
-  height: 14px;
-  width: 14px;
+  height: 12px;
+  width: 12px;
   border-radius: 50%;
   z-index: 30;
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
@@ -423,8 +423,8 @@ strong {
 /* line 165, ../sass/_passmap.scss */
 #passMap #passes .shot.miss:after {
   content: "";
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   background-color: #2c2c2c;
   position: absolute;
@@ -489,4 +489,9 @@ strong {
 /* line 231, ../sass/_passmap.scss */
 #passMap #passes .team-812:after {
   border-left: 10px solid #5ae0af;
+}
+
+/* line 1, ../sass/_stats.scss */
+#stats {
+  color: black;
 }

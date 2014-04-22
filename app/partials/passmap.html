@@ -1,8 +1,7 @@
 <figure id="passMap">
 	
 		<div id="passes">
-			<div ng-repeat="event in events | filter:customFilter | limitTo: 99999" ng-animate="fade" ng-style="style();" ng-click="showMoreInfo()" ng-class="addClasses(this)">
-				{{event.isHome}}
+			<div ng-repeat="event in events | filter:customFilter | limitTo: 99999" ng-style="style();" ng-click="showMoreInfo()" ng-class="addClasses(this)">
 				<div class="arrowhead"></div>
 			</div>
 		</div>

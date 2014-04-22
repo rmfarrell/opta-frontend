@@ -156,16 +156,16 @@
 		.shot {
 			position: absolute;
 			display: block;
-			height: 14px;
-			width: 14px;
+			height: 12px;
+			width: 12px;
 			border-radius: 50%;
 			z-index: 30;
 			@include opacity(.8);
 			
 			&.miss:after {
 				content: "";
-				width: 10px;
-				height: 10px;
+				width: 8px;
+				height: 8px;
 				border-radius: 50%;
 				background-color: $pitch;
 				position: absolute;
