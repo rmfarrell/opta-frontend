@@ -18,3 +18,22 @@ angular.module('phonecatServices', ['ngResource']).
 //     query: {method:'GET', params:{game_id: 131956, 'feed_type' : 24}, isArray:true}
 //   });
 // });
+
+app.factory('gameService', function($http) {
+	
+	return {
+		
+		getGameInfo : function(game) {
+			
+			var url = '../get_data.php?game_id=' + game + '&feed_type=f7';
+			
+			return $http.get(url)
+		},
+		
+		getEventInfo: function(game) {
+			var url = '../get_data.php?game_id=' + game + '&feed_type=f24';
+			
+			return $http.get(url);
+		}
+	};
+})
