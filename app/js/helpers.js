@@ -108,6 +108,19 @@ function getPlayerNameFromId(playersArr, id) {
 	return p;
 }
 
+function getPlayerFromId(playerId, players) {
+		
+	var _playerId = 'p' + playerId,
+		_player;
+
+	players.forEach(function(player, index) {
+	
+		if (_playerId == player["@attributes"].uID) return _player = players[index];
+	});
+
+	return _player;
+}
+
 function isSuccessfullAction(e) {
 	
 	//If Goal
@@ -117,6 +130,18 @@ function isSuccessfullAction(e) {
 		else if (parseInt(e.type_id) == 1 && e.outcome == 1) return true;
 }
 
+//flatten $scope.events to get rid of rich data
+var flattenEvents = function(eventObj) {
+	
+	var _o = [];
+	
+	eventObj.forEach(function(ev) {
+		
+		_o.push(ev["@attributes"]);
+	});
+	
+	return _o;
+}
 
 attachStats = {
 	
@@ -126,23 +151,43 @@ attachStats = {
 			
 			passes : {
 				successful: 0,
-				failed: 0
+				failed: 0,
+				pct: 0
 			},
 		
 			shots : {
 				successful: 0,
-				failed: 0
+				failed: 0,
+				pct: 0
 			}
 		}
 		
-		p.push(stats)
+		p.stats = stats;
 	},
 	
-	passes : function(player, wasGood) {
+	passPercent: function(passes) {
 		
-		if (wasGood) return players.passes.successful += 1 
+		var _pct = passes.successful / (passes.failed + passes.successful);
+		
+		_pct = _pct || "";
+		
+		if (typeof _pct === 'number') return (_pct * 100).toFixed(1) + "%";
+		
+			else return "n/a";
+		
+		// _pct = _pct || ;
+		// 	
+		// 	 _pct += "%";
+		// 	
+		// 	return _pct;
+	},
+	
+	passes : function(players, playerId, wasGood) {
+		
+		var _player = getPlayerFromId(playerId, players);
+		
+		if (parseInt(wasGood) > 0) return _player.stats.passes.successful += 1 
 			
-			else return players.passes.successful += 1;
+			else return _player.stats.passes.failed += 1;
 	}
-}
-;
+};

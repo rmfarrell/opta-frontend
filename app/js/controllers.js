@@ -30,32 +30,20 @@ app.controller("pullData", function ($scope, $route, gameService) {
 		
 		//Populate global var MatchData w/ match data from service
 		$.extend(_matchData, data);
+		
+		$scope.teams = data.SoccerDocument.Team;
 
 		//Assign a home team
-		homeTeam = data.SoccerDocument.Team[0]["@attributes"].uID.split('t')[1];
+		homeTeam = 	$scope.teams[0]["@attributes"].uID.split('t')[1];
 
 		//Populate $scope.players
-		$.each(data.SoccerDocument.Team, function(i,e) {
+		$.each($scope.teams, function(i,e) {
 
 			for (var x = 0; x < e.Player.length; x++) {
 
-				var pl = e.Player[x];
-
-				var playerData = [];
-
-				playerData.push(pl["@attributes"].uID);
-
-				playerData.push(pl.PersonName.First);
-
-				playerData.push(pl.PersonName.Last);
-
-				playerData.push(pl["@attributes"].Position);
-
-				$scope.players.push(playerData);
+				$scope.players.push(e.Player[x]);
 			}
 		});//End of Team loop
-		
-		$scope.teams = data.SoccerDocument.Team;
 		
 	});//End of getGame
 	
@@ -78,24 +66,70 @@ app.controller("stats", function ($scope, $http, $route, $filter, $controller) {
 	//Inherit gets from pullData controller
 	$controller("pullData", {$scope: $scope});
 	
+	//Initialize the stats object
 	$scope.getGame.success(function(data) {
-		
-		//initialize a stats object for each player array
+			
 		$scope.players.forEach(function(p) {
 			
+			$scope.players.push(p)
+
 			return attachStats.init(p);
 		});
 	});//End of Get Game
 	
-
 	
 	$scope.getEvents.success(function(data) {
 		
-		// $scope.get = function(e) {
-		// 	    
-		// 	    console.log($filter('isPass')(e));
-		// 		}
-	});
+		$scope.flatEvents = flattenEvents($scope.events);
+		
+		$scope.flatEvents.forEach(function(e,i) {
+			
+			//addPassing
+			switch (parseInt(e.type_id)) {
+					
+				case 1: //pass
+					
+					attachStats.passes($scope.players, e.player_id, e.outcome);
+					break;
+					
+				default:
+					//do nothing
+					break;
+				}
+		});
+		
+		//Do math on stats
+		$scope.players.forEach(function(player) {
+			
+			//Calculate passing percentage
+			player.stats.passes.pct = attachStats.passPercent(player.stats.passes);
+		})
+		
+		// $scope.events.forEach(function(e, i) {
+		// 	
+		// 	var shallowAttributes = e["@attributes"]
+		// 	
+		// 	//console.log(e["@attributes"].type_id)
+		// 	
+		// 	switch (parseInt(e["@attributes"].type_id)) {
+		// 		
+		// 		case 1: //pass
+		// 		
+		// 			console.log(e)
+		// 		
+		// 			break;
+		// 		
+		// 		default:
+		// 			//do nothing
+		// 			break;
+		// 		
+		// 	}
+		// })
+		
+		//capture passes
+		//console.log(data.)
+		
+	});//End of Get Events
 	
 });
 
@@ -110,7 +144,7 @@ app.controller("passmap", function ($scope, $filter, $controller) {
 
 	$scope.filterTeams = [];
 	
-	$scope.players = [];
+	//$scope.players = [];
 	
 	$scope.filterTeams = [];
 
@@ -249,12 +283,12 @@ app.controller("passmap", function ($scope, $filter, $controller) {
 			
 			var ngThis = this.event["@attributes"],
 				moContent = '',
-				player = getPlayerNameFromId($scope.players, ngThis.player_id),
+				player = getPlayerFromId(ngThis.player_id, $scope.players),
 				outcomeInt = parseInt(ngThis.outcome),
-				outcome = (isSuccessfullAction(ngThis)) ? 'completed' : 'failed'
-
+				outcome = (isSuccessfullAction(ngThis)) ? 'completed' : 'failed';
+				
 			moContent += '<strong class="time">' + ngThis.min + '&rsquo;' + ngThis.sec + '&rdquo;' + '</strong><br/>';
-			moContent += player[1] + " " + player[2] + '<br/>';
+			moContent += player.PersonName.First + " " + player.PersonName.Last + '<br/>';
 			moContent += outcome + " " + eventAppendix[ngThis.type_id - 1].toLowerCase();
 
 			$(event.target.parentNode).children().removeClass('selected');

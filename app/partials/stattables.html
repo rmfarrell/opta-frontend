@@ -1,11 +1,43 @@
 <div id="stats">
-	<table>
-		<tr ng-repeat="player in players">
-			<td>{{player[1]}} {{player[2]}}</td>
-			<!-- <td>{{(data|filter:query).length}}</td> -->
-			<td>{{(events | filter:byPlayer).length}}</td>
-		</tr>
-	</table>
+	<h2>Passing</h2>
+	<div ng-repeat="team in teams">
+		<h3><strong>{{team.Name}}</strong></h3>
+		<table>
+			<tr>
+				<th class="player">Player</th>
+				<th class="position">Pos.</th>
+				<th class="successful">Completed</th>
+				<th class="failed">Failed</th>
+				<th class="percent">Pct</th>
+			</tr>
+			<tr ng-repeat="player in team.Player">
+				<td>{{player.PersonName.Last}}, {{player.PersonName.First}}</td>
+				<td>{{player["@attributes"].Position}}</td>
+				<td>{{player.stats.passes.successful}}</td>
+				<td>{{player.stats.passes.failed}}</td>
+				<td>{{player.stats.passes.pct}}</td>
+			</tr>
+		</table>		
+	</div>
 	
-	<!-- {{events}} -->
+	<h2>Shots</h2>
+	<div ng-repeat="team in teams">
+		<h3><strong>{{team.Name}}</strong></h3>
+		<table>
+			<tr>
+				<th class="player">Player</th>
+				<th class="position">Pos.</th>
+				<th class="successful">Goals</th>
+				<th class="failed">Shots</th>
+				<th class="percent">Pct</th>
+			</tr>
+			<tr ng-repeat="player in team.Player">
+				<td>{{player.PersonName.Last}}, {{player.PersonName.First}}</td>
+				<td>{{player["@attributes"].Position}}</td>
+				<td>{{player.stats.passes.successful}}</td>
+				<td>{{player.stats.passes.failed}}</td>
+				<td>{{player.stats.passes.pct}}</td>
+			</tr>
+		</table>		
+	</div>
 </div>
