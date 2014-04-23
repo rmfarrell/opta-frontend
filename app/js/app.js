@@ -13,6 +13,10 @@ var app = angular.module('opta', ['eventTypeFilter']).
 				templateUrl: 'partials/stattables.html',
 				controller: 'stats'
 			})
+			.when('/menu', {
+				templateUrl: 'partials/menu.html',
+				controller: 'games'
+			})
       //when('/phones/:phoneId', {templateUrl: 'partials/phone-detail.html', controller: PhoneDetailCtrl}).
-      .otherwise({redirectTo: '/map'});
+      .otherwise({redirectTo: '/menu'});
 }]);
