@@ -1,43 +1,45 @@
 <div id="stats">
-	<h2>Passing</h2>
-	<div ng-repeat="team in teams">
-		<h3><strong>{{team.Name}}</strong></h3>
-		<table class="passing">
-			<tr>
-				<th class="player">Player</th>
-				<th class="position">Pos.</th>
-				<th class="successful">Completed</th>
-				<th class="failed">Failed</th>
-				<th class="percent">Pct</th>
-			</tr>
-			<tr ng-repeat="player in team.Player">
-				<td class="player">{{player.PersonName.Last}}, {{player.PersonName.First}}</td>
-				<td class="position">{{player["@attributes"].Position}}</td>
-				<td class="successful number">{{player.stats.passes.successful}}</td>
-				<td class="failed number">{{player.stats.passes.failed}}</td>
-				<td class="percent number">{{player.stats.passes.pct}}</td>
-			</tr>
-		</table>		
-	</div>
+	<h2 class="category-heading">Passing</h2>
+	<div class="category">
+		<div ng-repeat="team in teams" class="team">
+			<h3><strong>{{team.Name}}</strong></h3>
+			<table class="passing">
+				<tr>
+					<th class="player">Player</th>
+					<th class="position">Pos.</th>
+					<th class="successful number">Comp.</th>
+					<th class="failed number">Failed</th>
+					<th class="percent number">Pct</th>
+				</tr>
+				<tr ng-repeat="player in team.Player">
+					<td class="player">{{player.PersonName.Last}}, {{player.PersonName.First}}</td>
+					<td class="position">{{player["@attributes"].Position}}</td>
+					<td class="successful number">{{player.stats.passes.successful}}</td>
+					<td class="failed number">{{player.stats.passes.failed}}</td>
+					<td class="percent number">{{player.stats.passes.pct}}</td>
+				</tr>
+			</table>		
+		</div>
 	
-	<h2>Shots</h2>
-	<div ng-repeat="team in teams">
-		<h3><strong>{{team.Name}}</strong></h3>
-		<table>
-			<tr>
-				<th class="player">Player</th>
-				<th class="position">Pos.</th>
-				<th class="successful">Goals</th>
-				<th class="failed">Shots</th>
-				<th class="percent">Pct</th>
-			</tr>
-			<tr ng-repeat="player in team.Player">
-				<td>{{player.PersonName.Last}}, {{player.PersonName.First}}</td>
-				<td>{{player["@attributes"].Position}}</td>
-				<td>{{player.stats.passes.successful}}</td>
-				<td>{{player.stats.passes.failed}}</td>
-				<td>{{player.stats.passes.pct}}</td>
-			</tr>
-		</table>		
+		<h2 class="category-heading">Shots</h2>
+		<div ng-repeat="team in teams" class="team">
+			<h3><strong>{{team.Name}}</strong></h3>
+			<table>
+				<tr>
+					<th class="player">Player</th>
+					<th class="position">Pos.</th>
+					<th class="successful">Goals</th>
+					<th class="failed">Shots</th>
+					<th class="percent">Pct</th>
+				</tr>
+				<tr ng-repeat="player in team.Player">
+					<td>{{player.PersonName.Last}}, {{player.PersonName.First}}</td>
+					<td>{{player["@attributes"].Position}}</td>
+					<td>{{player.stats.passes.successful}}</td>
+					<td>{{player.stats.passes.failed}}</td>
+					<td>{{player.stats.passes.pct}}</td>
+				</tr>
+			</table>		
+		</div>
 	</div>
 </div>

@@ -1,11 +1,84 @@
 #stats {
+	
 	color: black;
+	
+	.category {
+		text-align: center;
+	}
+	
+	.category-heading {
+		clear: both;
+		text-align: center;
+		margin: 1.5em auto .2em;
+		
+		&:after, &:before {
+			position: relative;
+			background-color: transparent;
+			content: "* * * * * * * ";
+			font-weight: 200;
+			display: inline;
+			line-height: 2.5em;
+			font-size: .5em;
+			margin: 0 0;
+			letter-spacing: .25em;
+			position: absolute;
+			width: 12em;
+		}
+		
+		&:before {
+			margin-left: -12em;
+			//left: 0;
+		}
+	}
+	
+	.team {
+		width: 36%;
+		margin: 0 2%;
+		min-width: 40em;
+		display: block;
+		display: inline-block;
+
+		h3 {
+			text-align: left;
+			margin: 1em 0 .5em;
+		}
+	}
 	
 	table {
 		font-size: 1.3em;
+		margin: 0 auto;
+		width: 100%;
+		border: 14px solid transparent;
+		@include box-shadow(0 0 4px #999);
+		background-color: white;
+		
+		th {
+			font-weight: bold;
+			font-size: .85em;
+			text-transform: uppercase;
+			border-bottom: 1px dotted $pitchlines;
+			padding: .8em 0 .2em;
+			text-align: left;
+			color: #666;
+			
+			&.number {
+				text-align: center;
+			}
+		}
 		
 		td {
 			padding: .45em;
+			padding-left: 0;
+		}
+		
+		.number {
+			text-align: right;
+			width: 12%;
+		}
+		
+		.percent {
+			font-weight: bold;
+			width: 18%;
 		}
 	}
 }

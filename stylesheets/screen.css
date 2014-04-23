@@ -558,11 +558,84 @@ strong {
 #stats {
   color: black;
 }
-/* line 4, ../sass/_stats.scss */
+/* line 5, ../sass/_stats.scss */
+#stats .category {
+  text-align: center;
+}
+/* line 9, ../sass/_stats.scss */
+#stats .category-heading {
+  clear: both;
+  text-align: center;
+  margin: 1.5em auto .2em;
+}
+/* line 14, ../sass/_stats.scss */
+#stats .category-heading:after, #stats .category-heading:before {
+  position: relative;
+  background-color: transparent;
+  content: "* * * * * * * ";
+  font-weight: 200;
+  display: inline;
+  line-height: 2.5em;
+  font-size: .5em;
+  margin: 0 0;
+  letter-spacing: .25em;
+  position: absolute;
+  width: 12em;
+}
+/* line 28, ../sass/_stats.scss */
+#stats .category-heading:before {
+  margin-left: -12em;
+}
+/* line 34, ../sass/_stats.scss */
+#stats .team {
+  width: 36%;
+  margin: 0 2%;
+  min-width: 40em;
+  display: block;
+  display: inline-block;
+}
+/* line 41, ../sass/_stats.scss */
+#stats .team h3 {
+  text-align: left;
+  margin: 1em 0 .5em;
+}
+/* line 47, ../sass/_stats.scss */
 #stats table {
   font-size: 1.3em;
+  margin: 0 auto;
+  width: 100%;
+  border: 14px solid transparent;
+  -webkit-box-shadow: 0 0 4px #999999;
+  -moz-box-shadow: 0 0 4px #999999;
+  box-shadow: 0 0 4px #999999;
+  background-color: white;
 }
-/* line 7, ../sass/_stats.scss */
+/* line 55, ../sass/_stats.scss */
+#stats table th {
+  font-weight: bold;
+  font-size: .85em;
+  text-transform: uppercase;
+  border-bottom: 1px dotted #999999;
+  padding: .8em 0 .2em;
+  text-align: left;
+  color: #666;
+}
+/* line 64, ../sass/_stats.scss */
+#stats table th.number {
+  text-align: center;
+}
+/* line 69, ../sass/_stats.scss */
 #stats table td {
   padding: .45em;
+  padding-left: 0;
+}
+/* line 74, ../sass/_stats.scss */
+#stats table .number {
+  text-align: right;
+  width: 12%;
+}
+/* line 79, ../sass/_stats.scss */
+#stats table .percent {
+  font-weight: bold;
+  width: 18%;
 }
