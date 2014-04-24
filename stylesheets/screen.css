@@ -530,10 +530,12 @@ strong {
   color: white;
   text-transform: uppercase;
   -webkit-transform-origin: 0 0;
+  -moz-transform-origin: 0 0;
+  -ms-transform-origin: 0 0;
   margin: 0;
   padding: 0;
 }
-/* line 191, ../sass/_passmap.scss */
+/* line 193, ../sass/_passmap.scss */
 #passMap #passes .pass .arrowhead {
   display: block;
   position: relative;
@@ -552,15 +554,15 @@ strong {
   border-left-style: solid;
   border-left-color: inherit;
 }
-/* line 212, ../sass/_passmap.scss */
+/* line 214, ../sass/_passmap.scss */
 #passMap #passes .pass.selected:after {
   border-left: 10px solid #e3e854;
 }
-/* line 216, ../sass/_passmap.scss */
+/* line 218, ../sass/_passmap.scss */
 #passMap #passes .pass .end {
   float: right;
 }
-/* line 221, ../sass/_passmap.scss */
+/* line 223, ../sass/_passmap.scss */
 #passMap #passes .selected {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
   opacity: 1;
@@ -568,11 +570,11 @@ strong {
   -moz-box-shadow: 1px, 1px, 1px, black, 1;
   box-shadow: 1px, 1px, 1px, black, 1;
 }
-/* line 227, ../sass/_passmap.scss */
+/* line 229, ../sass/_passmap.scss */
 #passMap #passes .team-812 {
   background-color: #5ae0af;
 }
-/* line 231, ../sass/_passmap.scss */
+/* line 233, ../sass/_passmap.scss */
 #passMap #passes .team-812:after {
   border-left: 10px solid #5ae0af;
 }
@@ -816,14 +818,19 @@ strong {
   -moz-box-shadow: 1px 1px 3px black;
   box-shadow: 1px 1px 3px black;
   top: -.1em;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
 }
-/* line 41, ../sass/_top-bar.scss */
+/* line 42, ../sass/_top-bar.scss */
 .top-bar .details {
   margin-top: .3em;
   font-weight: 200;
   font-size: 1.7em;
 }
-/* line 55, ../sass/_top-bar.scss */
+/* line 56, ../sass/_top-bar.scss */
 .top-bar.map-1 .internal-nav .map a {
   color: #333;
   background-color: #efefef;
@@ -832,7 +839,7 @@ strong {
   box-shadow: inset 3px 3px 6px #999999;
   text-shadow: 1px 1px 4px white;
 }
-/* line 60, ../sass/_top-bar.scss */
+/* line 61, ../sass/_top-bar.scss */
 .top-bar.map-0 .internal-nav .stats a {
   color: #333;
   background-color: #efefef;
@@ -841,12 +848,12 @@ strong {
   box-shadow: inset 3px 3px 6px #999999;
   text-shadow: 1px 1px 4px white;
 }
-/* line 64, ../sass/_top-bar.scss */
+/* line 65, ../sass/_top-bar.scss */
 .top-bar nav {
   margin-top: 1em;
   font-size: 2em;
 }
-/* line 69, ../sass/_top-bar.scss */
+/* line 70, ../sass/_top-bar.scss */
 .top-bar .internal-nav {
   font-family: "eurofurence", arial;
   font-weight: normal;
@@ -855,11 +862,11 @@ strong {
   height: 2em;
   background-color: rgba(255, 255, 255, 0.1);
 }
-/* line 78, ../sass/_top-bar.scss */
+/* line 79, ../sass/_top-bar.scss */
 .top-bar .internal-nav > li {
   display: inline;
 }
-/* line 94, ../sass/_top-bar.scss */
+/* line 95, ../sass/_top-bar.scss */
 .top-bar .internal-nav a {
   display: block;
   float: left;
@@ -875,7 +882,7 @@ strong {
   letter-spacing: 1px;
   text-shadow: 1px 1px 4px #333333;
 }
-/* line 109, ../sass/_top-bar.scss */
+/* line 110, ../sass/_top-bar.scss */
 .top-bar .internal-nav a small {
   display: inline;
   font-size: .8em;
@@ -883,12 +890,12 @@ strong {
   position: relative;
   top: -.15em;
 }
-/* line 117, ../sass/_top-bar.scss */
+/* line 118, ../sass/_top-bar.scss */
 .top-bar .internal-nav a.active {
   color: red;
 }
 @media screen and (min-width: 800px) {
-  /* line 125, ../sass/_top-bar.scss */
+  /* line 126, ../sass/_top-bar.scss */
   .top-bar nav {
     width: auto;
     position: absolute;
@@ -897,19 +904,19 @@ strong {
     font-size: 1.8em;
     bottom: 0;
   }
-  /* line 133, ../sass/_top-bar.scss */
+  /* line 134, ../sass/_top-bar.scss */
   .top-bar nav .internal-nav {
     overflow: visible;
     height: auto;
     width: 8em;
     background: transparent none;
   }
-  /* line 138, ../sass/_top-bar.scss */
+  /* line 139, ../sass/_top-bar.scss */
   .top-bar nav .internal-nav .matches a {
     width: 100%;
     display: block;
   }
-  /* line 145, ../sass/_top-bar.scss */
+  /* line 146, ../sass/_top-bar.scss */
   .top-bar nav .internal-nav a {
     text-shadow: 1px 1px 2px black;
     background: transparent none;

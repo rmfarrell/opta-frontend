@@ -319,6 +319,8 @@ app.controller("passmap", function ($scope, $filter, $controller) {
 			return {
 				'width' : w + '%',
 				'-webkit-transform' : 'rotate(' + ang + 'deg)',
+				'-moz-transform' : 'rotate(' + ang + 'deg)',
+				'-ms-transform' : 'rotate(' + ang + 'deg)',
 				'left' : fromCoords.left + '%',
 				'top' : fromCoords.top + '%',
 				'background-color' : 'hsla('  + awayColorOffset + ', 80%,'  + isSuccessOffset + '%, 1)',

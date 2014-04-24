@@ -36,6 +36,7 @@
 		position: relative;
 		@include box-shadow(1px 1px 3px #000);
 		top: -.1em;
+		@include border-radius(2px);
 	}
 	
 	.details {
