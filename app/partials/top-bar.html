@@ -1,0 +1,26 @@
+<div class="top-bar map-{{map}}">
+	<div class="info">
+		<span class="date"></span>
+		<h1>
+			<span class="no-break">{{teams[0].Name}} <span class="score">{{teams[0].goals}}</span></span>
+			<span class="no-break">{{teams[1].Name}} <span class="score">{{teams[1].goals}}</span></span>
+		</h1>
+		<h4 class="details">
+			as witnessed by {{attendance}} souls at {{venue}}
+		</h4>
+	</div>
+	<nav>
+		<ul class="internal-nav">
+			<li class="matches"><a href="#"><small><</small> Matches</a></li>
+			<li class="map"><a ng-href="#/map/{{matchId}}">Map</a></li>
+			<li class="stats"><a ng-href="#/stats/{{matchId}}">Stats</a></li>
+		</ul>
+	</nav>
+</div>
+
+<!-- 
+TODO:
+* get goal data from SoccerDocument instead of events
+* players who scored
+* cards
+-->

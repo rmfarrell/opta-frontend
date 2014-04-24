@@ -20,7 +20,7 @@ body {
 	font-size: 10px;
 }
 
-h2,h3,h1 {
+h2,h3,h1,h4 {
 	font-family: "eurofurence", arial;
 }
 
@@ -101,8 +101,26 @@ strong {
 	}
 }
 
+
+
+.v {
+	display: inline-block;
+	font-weight: 200;
+	font-size: .7em;
+	position: relative;
+	top: -.2em;
+	line-height: .8em;
+	margin: 0 .2em;
+	border: 0;
+	border-bottom: 2px solid #efefef;
+}
+
 .no-break {
 	white-space: nowrap;
+}
+
+.fixed {
+	position: fixed;
 }
 
 .menu {

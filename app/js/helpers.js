@@ -1,3 +1,8 @@
+function numberWithCommas(x) {
+	var x = x || 'unknown';
+	return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
 function formateDate(dateString) {
 	
 	var d = dateString || ""; //Comes from opta in YEAR-MONTH-DAY format

@@ -44,7 +44,13 @@ app.controller("pullData", function ($scope, $route, gameService) {
 	
 	$scope.players = [],
 	
+	$scope.venue = "",
+	
 	$scope.events,
+	
+	$scope.attendance = 0,
+	
+	$scope.matchId = 0,
 	
 	$scope.teams;
 	
@@ -56,19 +62,27 @@ app.controller("pullData", function ($scope, $route, gameService) {
 		$.extend(_matchData, data);
 		
 		$scope.teams = data.SoccerDocument.Team;
-
+		
+		$scope.matchId = data.SoccerDocument["@attributes"].uID.split("f")[1];
+		
+		$scope.venue = data.SoccerDocument.Venue.Name.split("-").join(" ");
+		
+		$scope.attendance = numberWithCommas(data.SoccerDocument.MatchData.MatchInfo.Attendance);
+		
 		//Assign a home team
 		homeTeam = 	$scope.teams[0]["@attributes"].uID.split('t')[1];
 
-		//Populate $scope.players
-		$.each($scope.teams, function(i,e) {
+		$.each($scope.teams, function(i,team) {
+			
+			//Instantiate goals variable so we know the score
+			team.goals = 0;
+			
+			//Get reference to all the players in team and populate $scope.players
+			for (var x = 0; x < team.Player.length; x++) {
 
-			for (var x = 0; x < e.Player.length; x++) {
-
-				$scope.players.push(e.Player[x]);
+				$scope.players.push(team.Player[x]);
 			}
 		});//End of Team loop
-		
 	});//End of getGame
 	
 	//populate $scope.events
@@ -77,6 +91,15 @@ app.controller("pullData", function ($scope, $route, gameService) {
 		var _richEvents = [];
 
 		$.each(data.Game.Event, function(i,e) {
+			
+			//get goals and increment them to $scope.teams.goals
+			if (e["@attributes"].type_id == 16) {
+				
+				$scope.teams.forEach(function(team, index) {
+					
+					if ("t" + e["@attributes"].team_id === team["@attributes"].uID) team.goals += 1;
+				});
+			}
 
 			_richEvents.push(e);
 		});

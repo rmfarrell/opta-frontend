@@ -1,3 +1,4 @@
+<div ng-include src="'partials/top-bar.html'" onload="map = 1"></div>
 <figure id="passMap">
 	
 		<div id="passes">
@@ -26,14 +27,8 @@
 	
 </figure>
 <div class="menu">
-	<!--<p>
-		<label for="amount">Time</label>
-		<input type="text" id="amount" style="border: 0; color: #f6931f; font-weight: bold;" />
-	</p>-->
 	<div id="slider-vals">
 		<div id="slider-range" ></div>
-		<!--<input type="input" ng-model="filterTime.start" value="0"/>
-		<input type="input" ng-model="filterTime.end" value="90"/>-->
 		<input type="text" name="start-time" ng-model="filterTime.start" />
 		<input type="text" name="end-time" ng-model="filterTime.end" />
 	</div>
