@@ -2,11 +2,35 @@
 
 /* Controllers */
 
-var MatchData = {};
+// var MatchData = {};
+// 
+// var teams = []; //Delete later
+// 
+// var players = [];
 
-var teams = []; //Delete later
 
-var players = [];
+app.controller("menu", function ($scope, seasonService) {
+	
+	$scope.games = [];
+	
+	//Make games data availble for $scope
+	seasonService.forEach(function(g) {
+		
+		var gameObj = {};
+		
+		gameObj.id = g[0];
+		
+		gameObj.away = g[1];
+		
+		gameObj.home = g[2];
+		
+		//Get a date object (helpers)
+		gameObj.date = formateDate(g[3]);
+		
+		return $scope.games.push(gameObj)
+	});
+	
+});
 
 var homeTeam = 0;
 

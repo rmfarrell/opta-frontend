@@ -1,0 +1,15 @@
+<nav class="main-nav">
+	<div class="top-bar">
+		<input class="search-filter menu-constrain" ng-model="filter.text" type="search" placeholder="Filter..."/>
+		
+	</div>
+	<ul class="games-menu menu-constrain">
+		<li ng-repeat="game in games | filter:filter.text">
+			<span class="date">{{game.date}}</span>
+			<h2><span class="no-break">{{game.home}}</span> <span class="v">v.</span> <span class="no-break">{{game.away}}</span></h2>
+			<ul class="map-stats-option">
+				<li class="map"><a ng-href="#/map/{{game.id}}">Map</a></li>
+				<li class="stats"><a ng-href="#/stats/{{game.id}}">Stats</a></li>
+		</li>
+	</ul>
+</nav>

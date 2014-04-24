@@ -1,3 +1,15 @@
+function formateDate(dateString) {
+	
+	var d = dateString || ""; //Comes from opta in YEAR-MONTH-DAY format
+	var formattedDate = null; //return value
+	
+	d = dateString.split("-");
+	
+	formattedDate = new Date(d[0],d[1],d[2]);
+	
+	return formattedDate.toDateString();
+}
+
 function InfoModal ( $target, options ) { 
 	
 	var settings = {
@@ -23,7 +35,6 @@ function InfoModal ( $target, options ) {
 				.append(settings.content)
 				.css('left', settings.left)
 				.css('top', settings.top);
-			
 		},
 		
 		destroy : function() {

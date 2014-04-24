@@ -15,8 +15,18 @@ var app = angular.module('opta', ['eventTypeFilter']).
 			})
 			.when('/menu', {
 				templateUrl: 'partials/menu.html',
-				controller: 'games'
+				controller: 'menu'
 			})
       //when('/phones/:phoneId', {templateUrl: 'partials/phone-detail.html', controller: PhoneDetailCtrl}).
       .otherwise({redirectTo: '/menu'});
 }]);
+
+// var menu = angular.module('menu', []).
+// 	config(['$routeProvider', function($routeProvider) {
+// 		
+// 		$routeProvider
+// 			.when('/menu', {
+// 				templateUrl: 'partials/menu.html',
+// 				controller: 'games'
+// 			})
+// }]);

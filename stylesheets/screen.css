@@ -209,6 +209,11 @@ strong {
 }
 
 /* line 104, ../sass/screen.scss */
+.no-break {
+  white-space: nowrap;
+}
+
+/* line 108, ../sass/screen.scss */
 .menu {
   color: #2c2c2c;
   font-size: 1.25em;
@@ -216,7 +221,7 @@ strong {
   margin: 0;
   clear: both;
 }
-/* line 110, ../sass/screen.scss */
+/* line 114, ../sass/screen.scss */
 .menu:before {
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #343434), color-stop(100%, transparent));
   background-image: -webkit-linear-gradient(top, #343434, transparent);
@@ -228,22 +233,22 @@ strong {
   height: 4px;
   width: 100%;
 }
-/* line 119, ../sass/screen.scss */
+/* line 123, ../sass/screen.scss */
 .menu .team-menu {
   display: inline-block;
   margin: 0 6%;
 }
-/* line 123, ../sass/screen.scss */
+/* line 127, ../sass/screen.scss */
 .menu .team-menu table {
   margin: 0 auto;
 }
-/* line 130, ../sass/screen.scss */
+/* line 134, ../sass/screen.scss */
 .menu h4 {
   font-size: 1.5em;
   font-weight: bold;
   margin: 2em .5em .5em;
 }
-/* line 136, ../sass/screen.scss */
+/* line 140, ../sass/screen.scss */
 .menu #slider-range {
   width: 90%;
   margin: 2em auto;
@@ -638,4 +643,122 @@ strong {
 #stats table .percent {
   font-weight: bold;
   width: 18%;
+}
+
+/* line 1, ../sass/_mainNav.scss */
+.main-nav {
+  text-align: center;
+  padding-top: 5em;
+}
+/* line 6, ../sass/_mainNav.scss */
+.main-nav .menu-constrain {
+  width: 90%;
+}
+@media screen and (min-width: 800px) {
+  /* line 6, ../sass/_mainNav.scss */
+  .main-nav .menu-constrain {
+    width: 50%;
+  }
+}
+/* line 15, ../sass/_mainNav.scss */
+.main-nav .search-filter {
+  background: transparent none;
+  border: none;
+  outline: none;
+  border: 1px dotted #999999;
+  font-family: "eurofurence", arial;
+  font-size: 3em;
+  font-weight: 200;
+  line-height: 1em;
+  margin: .25em 0 0;
+  z-index: 20;
+}
+/* line 27, ../sass/_mainNav.scss */
+.main-nav .search-filter:focus {
+  background-color: white;
+  border: 1px solid white;
+  -webkit-box-shadow: 1px 1px 10px black;
+  -moz-box-shadow: 1px 1px 10px black;
+  box-shadow: 1px 1px 10px black;
+}
+/* line 34, ../sass/_mainNav.scss */
+.main-nav .games-menu {
+  color: #333;
+  margin: 0 auto;
+  text-align: center;
+}
+/* line 39, ../sass/_mainNav.scss */
+.main-nav .games-menu > li {
+  border-bottom: 2px solid #2c2c2c;
+  margin: 0 0 2em;
+  padding: 1em 0 0;
+}
+/* line 44, ../sass/_mainNav.scss */
+.main-nav .games-menu > li:after {
+  border-top: 1px solid #2c2c2c;
+  content: "";
+  height: 6px;
+  width: 100%;
+  display: block;
+  background-color: red;
+  z-index: -1;
+  position: relative;
+  top: 10px;
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(0, 0, 0, 0.3)), color-stop(100%, rgba(0, 0, 0, 0)));
+  background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0));
+  background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0));
+  background: -o-linear-gradient(top, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0));
+  background: linear-gradient(top, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0));
+}
+/* line 59, ../sass/_mainNav.scss */
+.main-nav .date {
+  font-size: 2em;
+  font-weight: 200;
+  font-style: italic;
+  font-family: "eurofurence", arial;
+  display: block;
+  text-align: left;
+}
+/* line 68, ../sass/_mainNav.scss */
+.main-nav h2 {
+  font-size: 3em;
+  padding: .2em 0 .5em;
+  line-height: 1.1em;
+  text-align: left;
+}
+/* line 75, ../sass/_mainNav.scss */
+.main-nav .map-stats-option {
+  margin: 0 auto 1em;
+}
+/* line 79, ../sass/_mainNav.scss */
+.main-nav .map-stats-option > li {
+  display: inline-block;
+  padding: 0 1em;
+}
+/* line 87, ../sass/_mainNav.scss */
+.main-nav a {
+  margin: 0;
+  padding: 0;
+  font-size: 1.8em;
+  font-family: "eurofurence", arial;
+  font-weight: 200;
+  letter-spacing: .1em;
+  display: block;
+  text-transform: uppercase;
+  background-color: #2c2c2c;
+  padding: .3em .6em;
+  color: white;
+  text-decoration: none;
+  text-shadow: 1px 1px 5px black;
+  border: 3px double #efefef;
+  border-style: double;
+}
+
+/* line 1, ../sass/_top-bar.scss */
+.top-bar {
+  width: 100%;
+  position: fixed;
+  background-color: #2c2c2c;
+  top: 0;
+  height: 5em;
 }

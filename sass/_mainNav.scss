@@ -1,0 +1,104 @@
+.main-nav {
+	
+	text-align: center;
+	padding-top: 5em;
+	
+	.menu-constrain {
+		
+		width: 90%;
+	
+		@media screen and (min-width: 800px) {
+	    width: 50%;
+		}
+	}
+	
+	.search-filter {
+		background: transparent none;
+		border: none;
+		outline: none;
+		border: 1px dotted $pitchlines;
+		font-family: "eurofurence", arial;
+		font-size: 3em;
+		font-weight: 200;
+		line-height: 1em;
+		margin: .25em 0 0;
+		z-index: 20;
+		
+		&:focus {
+			background-color: white;
+			border: 1px solid white;
+			@include box-shadow(1px 1px 10px #000)
+		}
+	}
+	
+	.games-menu {
+		color: #333;
+		margin: 0 auto;
+		text-align: center;
+		
+		> li {
+			border-bottom: 2px solid  $pitch;
+			margin: 0 0 2em;
+			padding: 1em 0 0;
+			
+			&:after {
+				border-top: 1px solid $pitch;
+				content: "";
+				height: 6px;
+				width: 100%;
+				display: block;
+				background-color: red;
+				z-index: -1;
+				position: relative;
+				top: 10px;
+			  @include background(linear-gradient(top, rgba(0,0,0,.3), rgba(0,0,0,0)));
+			}	
+		}
+	}
+	
+	.date {
+		font-size: 2em;
+		font-weight: 200;
+    font-style: italic;
+		font-family: "eurofurence", arial;
+		display: block;
+		text-align: left;
+	}
+	
+	h2 {
+		font-size: 3em;
+		padding: .2em 0 .5em;
+		line-height: 1.1em;
+		text-align: left;
+	}
+	
+	.map-stats-option {
+		
+		margin: 0 auto 1em;
+		
+		> li {
+			display: inline-block;
+			padding: 0 1em;
+			
+			&.map {}
+		}
+	}
+	
+	a {
+		margin: 0;
+		padding: 0;
+		font-size: 1.8em;
+		font-family: "eurofurence", arial;
+		font-weight: 200;
+		letter-spacing: .1em;
+		display: block;
+		text-transform: uppercase;
+		background-color: $pitch;
+		padding: .3em .6em;
+		color: white;
+		text-decoration: none;
+		@include text-shadow(1px 1px 5px #000);
+		border: 3px double #efefef;
+		border-style: double;
+	}
+}

@@ -239,6 +239,8 @@
 				</tr>
 			</table>
 		</nav> -->
-	<div ng-view ng-app="opta"></div>
+	<div ng-view ng-app="opta">
+		<div ng-view></div>
+	</div>
 </body>
 </html>

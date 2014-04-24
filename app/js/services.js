@@ -19,9 +19,8 @@ app.factory('gameService', function($http) {
 	};
 });
 
-
-
-app.factory('season', function($http) {
+//Sent from Opta via Email
+app.factory('seasonService', function($http) {
 	
 	return [
 		[131897, 'TuS Koblenz','1. FSV Mainz 05','2007-08-12'],
@@ -46,7 +45,7 @@ app.factory('season', function($http) {
 		[131916, 'OFC Kickers 1901', 'Alemannia Aachen', '2007-08-26'],
 		[131917, 'SpVgg Greuther Fürth', '1. FC Kaiserslautern', '2007-08-26'],
 		[131918, 'SC Freiburg', 'FC Augsburg', '2007-08-27'],
-		[131919, 'FC Carl Zeiss Jena', '1. FC Köln'],
+		[131919, 'FC Carl Zeiss Jena', '1. FC Köln', '2007-08-26'],
 		[131920, 'SV Wehen Wiesbaden', 'FC Erzgebirge Aue', '2007-08-26'],
 		[131921, 'TSV München 1860', '1899 Hoffenheim', '2007-08-26'],
 		[131922, 'TuS Koblenz', 'FC St. Pauli', '2007-08-26'],
