@@ -35,7 +35,7 @@
 				<tr ng-repeat="player in team.Player">
 					<td><a ng-click="info(player, $event)">{{player.PersonName.Last}}, {{player.PersonName.First}}</a></td>
 					<td>{{player["@attributes"].Position}}</td>
-					<td class="number"><strong>{{player.stats.shots.successful}}</strong></td>
+					<td class="number"><strong>{{player.stats.shots.goals}}</strong></td>
 					<td class="number">{{player.stats.shots.attempts}}</td>
 				</tr>
 			</table>		

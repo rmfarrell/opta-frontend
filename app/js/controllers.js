@@ -115,7 +115,6 @@ app.controller("stats", function ($scope, $http, $route, $filter, $controller) {
 		});
 	});//End of Get Game
 	
-	
 	$scope.getEvents.success(function(data) {
 		
 		$scope.flatEvents = flattenEvents($scope.events);
@@ -152,44 +151,17 @@ app.controller("stats", function ($scope, $http, $route, $filter, $controller) {
 		
 		$scope.info = function(p, ev) {
 			
-			var $targ = $(ev.target);
+			var closeFunction = $(ev.target).data('player-stats'), //attached to element on open
+				fullStats = null; //
 			
-			var $tableContainer = $('<tr><td colspan="5"></td></tr>');
+			if (closeFunction) closeFunction();
 			
-			var $table = $('<table class="full-stats"></table>');
-			
-			var $row = $targ.parent().parent();
-			
-			var tableHTML = ""
-			
-			var statsObj = {}
-			
-			if ($targ.hasClass('open')) {
-				
-				//close it
-				
-				return;
-			}
-			
-			$targ.addClass('open');
-			
-			$.each(p.stats, function(_key, _value) {
-				
-				tableHTML += '<tr><td collspan="2">' + _key + '</td></tr>';
-				
-				$.each(_value, function(__key, __value) {
-					
-					tableHTML += ('<tr><td>' + __key + '</td><td>' + __value + '</td></tr>');
-				});
-			});
-			
-			$table.append(tableHTML)
-
-			$tableContainer.find('td').append($table);
-			
-			$targ.parent().parent().after($tableContainer);
-			
-			$tableContainer.hide().slideDown();
+				else {
+			    
+			    fullStats = new	FullStats(p, ev);
+			    
+			    return fullStats.open();
+				}
 		}
 		
 		//Do math on stats

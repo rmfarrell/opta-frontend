@@ -7,10 +7,73 @@ function alertz() {
 	alert('test')
 }
 
-function displayFullStats(playerObject, $el) {
+function FullStats(playerObject, ev) {
 	
+	var $targ = $(ev.target);
 	
-}
+	var $tableContainer = $('<tr><td colspan="5" class="full-stats-container"></td></tr>');
+	
+	var $table = $('<table class="full-stats"></table>');
+	
+	var $row = $targ.parent().parent();
+	
+	var tableHTML = "";
+	
+	var statsObj = {};
+	
+	var that = this;
+	
+	return {
+		
+		open: function() {
+			
+			var z = 0;
+
+			$targ.addClass('open');
+
+			$.each(playerObject.stats, function(_key, _value) {
+				
+				var zebra = (z % 2) ? "zebra-1" : "zebra-2"
+				
+				z++;
+				
+				var rs = Object.keys(_value).length;
+				
+				var border = "border-top";
+								
+				tableHTML += '<tr class="' + zebra + " " + border + '"><td rowspan="' + (rs + 1) + '" class="header"><h5>' + _key + '</h5></td></tr>';
+
+				$.each(_value, function(__key, __value) {
+
+					tableHTML += ('<tr class="' + zebra + " " + border + '"><td class="full-stats-key">' + __key + '</td><td class="full-stats-value">' + __value + '</td></tr>');
+				
+					border = " "
+				});
+			});
+
+			$table.append(tableHTML)
+
+			$tableContainer.find('td').append($table);
+
+			$targ.parent().parent().after($tableContainer);
+
+			$tableContainer.hide().slideDown();
+			
+			return $targ.data('player-stats', this.close);
+		},
+		
+		close: function() {
+			
+			$tableContainer.hide();
+
+			$targ.removeClass('open');
+			
+			$targ.removeData('player-stats');
+			
+			return false;
+		}
+	}
+};
 
 function formateDate(dateString) {
 	
@@ -177,20 +240,19 @@ attachStats = {
 		var stats = {		
 			
 			passes: {
-				attempts: 0,
 				successful: 0,
+				attempts: 0,
 				pct: 0
 			},
 		
 			shots: {
-				successful: 0,
+				goals: 0,
 				attempts: 0,
 			},
 			
 			defense: {
 				tackles: 0,
 				interceptions: 0,
-				saves: 0,
 				clearances: 0
 			}
 		}
@@ -202,7 +264,7 @@ attachStats = {
 		
 		var _player = getPlayerFromId(playerId, players);
 		
-		if (wasGood) _player.stats.shots.successful += 1;
+		if (wasGood) _player.stats.shots.goals += 1;
 		
 		return _player.stats.shots.attempts += 1;
 	},
