@@ -1,14 +1,5 @@
 'use strict';
 
-/* Controllers */
-
-// var MatchData = {};
-// 
-// var teams = []; //Delete later
-// 
-// var players = [];
-
-
 app.controller("menu", function ($scope, seasonService) {
 	
 	$scope.games = [];
@@ -39,18 +30,18 @@ app.controller("pullData", function ($scope, $route, gameService) {
 	$scope.gameId = $route.current.params.gameId;
 
 	$scope.getGame = gameService.getGameInfo($scope.gameId);
-
+	
 	$scope.getEvents = gameService.getEventInfo($scope.gameId);
 	
-	$scope.players = [],
+	$scope.players = [];
 	
-	$scope.venue = "",
+	$scope.venue = "";
 	
-	$scope.events,
+	$scope.events;
 	
-	$scope.attendance = 0,
+	$scope.attendance = 0;
 	
-	$scope.matchId = 0,
+	$scope.matchId = 0;
 	
 	$scope.teams;
 	
@@ -135,8 +126,22 @@ app.controller("stats", function ($scope, $http, $route, $filter, $controller) {
 			switch (parseInt(e.type_id)) {
 					
 				case 1: //pass
-					
 					attachStats.passes($scope.players, e.player_id, e.outcome);
+					break;
+					
+				case 16: //goals
+					attachStats.shots($scope.players, e.player_id, true)
+					break;
+					
+				case 13:
+				case 14: //misses
+					attachStats.shots($scope.players, e.player_id, false)
+					break;
+					
+				case 8: //interceptions
+				case 7: //tackles
+				case 12: //clearance
+					attachStats.defense($scope.players, e.player_id, e.type_id)
 					break;
 					
 				default:
@@ -145,40 +150,56 @@ app.controller("stats", function ($scope, $http, $route, $filter, $controller) {
 				}
 		});
 		
+		$scope.info = function(p, ev) {
+			
+			var $targ = $(ev.target);
+			
+			var $tableContainer = $('<tr><td colspan="5"></td></tr>');
+			
+			var $table = $('<table class="full-stats"></table>');
+			
+			var $row = $targ.parent().parent();
+			
+			var tableHTML = ""
+			
+			var statsObj = {}
+			
+			if ($targ.hasClass('open')) {
+				
+				//close it
+				
+				return;
+			}
+			
+			$targ.addClass('open');
+			
+			$.each(p.stats, function(_key, _value) {
+				
+				tableHTML += '<tr><td collspan="2">' + _key + '</td></tr>';
+				
+				$.each(_value, function(__key, __value) {
+					
+					tableHTML += ('<tr><td>' + __key + '</td><td>' + __value + '</td></tr>');
+				});
+			});
+			
+			$table.append(tableHTML)
+
+			$tableContainer.find('td').append($table);
+			
+			$targ.parent().parent().after($tableContainer);
+			
+			$tableContainer.hide().slideDown();
+		}
+		
 		//Do math on stats
 		$scope.players.forEach(function(player) {
 			
 			//Calculate passing percentage
 			player.stats.passes.pct = attachStats.passPercent(player.stats.passes);
-		})
-		
-		// $scope.events.forEach(function(e, i) {
-		// 	
-		// 	var shallowAttributes = e["@attributes"]
-		// 	
-		// 	//console.log(e["@attributes"].type_id)
-		// 	
-		// 	switch (parseInt(e["@attributes"].type_id)) {
-		// 		
-		// 		case 1: //pass
-		// 		
-		// 			console.log(e)
-		// 		
-		// 			break;
-		// 		
-		// 		default:
-		// 			//do nothing
-		// 			break;
-		// 		
-		// 	}
-		// })
-		
-		//capture passes
-		//console.log(data.)
-		
+		});
 	});//End of Get Events
-	
-});
+});//End of Stats controller
 
 app.controller("passmap", function ($scope, $filter, $controller) {
 	
@@ -373,113 +394,3 @@ app.controller("passmap", function ($scope, $filter, $controller) {
 	$( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
 		" - $" + $( "#slider-range" ).slider( "values", 1 ) );
 });
-
-/*
-function timeline($scope, $http) {
-	
-	$scope.filterItem = {store: 0};
-	
-	$scope.filterPlayers = {};
-	
-	$scope.filterTeams = [];
-	
-	$scope.customFilter = function (data) {
-		
-		var requestedTeam = $scope.filterItem.store;
-		
-		var matchedPlayer = 'p' + data.player_id;
-		
-		var requestedPlayers = [];
-		
-		$.each($scope.filterPlayers, function(i,v) {
-			
-			if (v === true) {
-				
-				requestedPlayers.push(i);
-			}
-		});
-		
-		var doPlayersMatch = (requestedPlayers.length < 1 || requestedPlayers.indexOf(matchedPlayer) !== -1) ? true : false;
-		
-		if (requestedTeam != 0) {
-			
-			requestedTeam = parseInt(requestedTeam.split('t')[1]);
-		}
-		
-		if (data.team_id == requestedTeam && doPlayersMatch) {
-			
-			return true;
-			
-	    } else if (requestedTeam == 0 && doPlayersMatch) {
-		
-			return true;
-			
-	    } else {
-		
-			return false;		
-		}
-	};  
-	
-	$http.get('../get_data.php?game_id=' + gameID + '&feed_type=f7').success(function(data) {
-		
-		//Populate global var MatchData w/ match data from service
-		$.extend(MatchData, data);
-		
-		//populate golbal var teams with array of team ids and team names
-		$.each(MatchData.SoccerDocument.Team, function(i,v) {
-			
-			var teamID = this["@attributes"].uID;
-	
-			var teamName = this.Name;
-			
-			var t = []
-	
-			t.push(teamID, teamName);
-			
-			$scope.filterTeams.push(t);
-		});
-		
-		//populate golbal var player with array of player ids and player names
-		$.each(MatchData.SoccerDocument.Team, function(i,e) {
-			
-			for (var x = 0; x < e.Player.length; x++) {
-				
-				var pl = e.Player[x];
-				
-				var playerData = [];
-				
-				playerData.push(pl["@attributes"].uID);
-				
-				playerData.push(pl.PersonName.First);
-				
-				playerData.push(pl.PersonName.Last);
-				
-				playerData.push(pl["@attributes"].Position);
-				
-				players.push(playerData);
-			}
-		});
-		
-		$http.get('../get_data.php?game_id=' + gameID + '&feed_type=f24').success(function(data) {
-	
-			//Events
-			var eventsAttr = [];
-	
-			//Event Qualifiers
-			var eventsQ = [];
-	
-			$.each(data.Game.Event, function(i,e) {
-				
-				eventsAttr.push(e["@attributes"]);
-				eventsQ.push(e.Q);
-			});
-			
-	    	$scope.events = eventsAttr;
-			
-			//console.log($scope.events);
-	
-			$scope.players = MatchData.SoccerDocument.Team;
-		});
-	});
-}
-*/

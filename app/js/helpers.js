@@ -3,6 +3,15 @@ function numberWithCommas(x) {
 	return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
+function alertz() {
+	alert('test')
+}
+
+function displayFullStats(playerObject, $el) {
+	
+	
+}
+
 function formateDate(dateString) {
 	
 	var d = dateString || ""; //Comes from opta in YEAR-MONTH-DAY format
@@ -31,6 +40,8 @@ function InfoModal ( $target, options ) {
 		$wrapper : $('<div class="infoModalWrapper"></div>'),
 		
 		init : function () {
+			
+			alert('test')
 			
 			this.destroy();
 			
@@ -165,45 +176,65 @@ attachStats = {
 		
 		var stats = {		
 			
-			passes : {
+			passes: {
+				attempts: 0,
 				successful: 0,
-				failed: 0,
 				pct: 0
 			},
 		
-			shots : {
+			shots: {
 				successful: 0,
-				failed: 0,
-				pct: 0
+				attempts: 0,
+			},
+			
+			defense: {
+				tackles: 0,
+				interceptions: 0,
+				saves: 0,
+				clearances: 0
 			}
 		}
 		
 		p.stats = stats;
 	},
 	
+	shots: function(players, playerId, wasGood) {
+		
+		var _player = getPlayerFromId(playerId, players);
+		
+		if (wasGood) _player.stats.shots.successful += 1;
+		
+		return _player.stats.shots.attempts += 1;
+	},
+	
+	defense: function(players, playerId, action) {
+		
+		var _player = getPlayerFromId(playerId, players);
+		
+		if (action == 8) return _player.stats.defense.interceptions += 1;
+		
+			else if (action == 7) return _player.stats.defense.tackles += 1;
+
+			else if (action == 12) return _player.stats.defense.clearances += 1;
+	},
+	
 	passPercent: function(passes) {
 		
-		var _pct = passes.successful / (passes.failed + passes.successful);
+		var _pct = passes.successful / passes.attempts;
 		
 		_pct = _pct || "";
 		
 		if (typeof _pct === 'number') return (_pct * 100).toFixed(1) + "%";
 		
 			else return "n/a";
-		
-		// _pct = _pct || ;
-		// 	
-		// 	 _pct += "%";
-		// 	
-		// 	return _pct;
 	},
 	
 	passes : function(players, playerId, wasGood) {
 		
 		var _player = getPlayerFromId(playerId, players);
 		
-		if (parseInt(wasGood) > 0) return _player.stats.passes.successful += 1 
+		if (parseInt(wasGood) > 0) _player.stats.passes.successful += 1 
 			
-			else return _player.stats.passes.failed += 1;
+		return _player.stats.passes.attempts += 1;
 	}
 };

@@ -1,15 +1,16 @@
 #stats {
-	
+	padding-bottom: 5em;
 	color: black;
 	
 	.category {
 		text-align: center;
 	}
 	
-	.category-heading {
+	h2.category-heading {
 		clear: both;
 		text-align: center;
-		margin: 1.5em auto .2em;
+		margin: 1.9em auto .2em;
+		color: #333;
 		
 		&:after, &:before {
 			position: relative;
@@ -40,7 +41,10 @@
 
 		h3 {
 			text-align: left;
-			margin: 1em 0 .5em;
+			margin: 1em 0 .2em;
+			font-weight: bold;
+			color: #333;
+			font-size: 2.2em;
 		}
 	}
 	
@@ -65,10 +69,16 @@
 				text-align: center;
 			}
 		}
+
+		a {
+			color: $pitch;
+			cursor: pointer;
+		}
 		
 		td {
 			padding: .45em;
 			padding-left: 0;
+			color: #333;
 		}
 		
 		.number {

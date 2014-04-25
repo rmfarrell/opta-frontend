@@ -70,7 +70,14 @@ var eventAppendix = [
 
 var passiness = [1];
 var shots = [16, 13, 14];
-var passOrShot = passiness.concat(shots)
+var passOrShot = passiness.concat(shots);
+var defenseActions = [
+	11, //claim
+	8, //interception
+	7, //tackle
+	10 //save
+	//15? attempt save
+];
 
 /* Filters */
 angular.module('eventTypeFilter', [])
