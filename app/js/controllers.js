@@ -186,12 +186,18 @@ app.controller("passmap", function ($scope, $filter, $controller) {
 
 	$scope.filterTeams = function() {
 		
+		var $teamDiv = $(event.target).parents('.team-menu');
+		
 		if (event.target.checked) {
+			
+			$teamDiv.removeClass('disabled');
 			
 			//Add requested team to the array
 			requestedTeam.push(event.target.value)
 			
 		} else {
+			
+			$teamDiv.addClass('disabled');
 			
 			//Remove team from array of requested teams
 			requestedTeam.forEach(function(team, index, arr) {

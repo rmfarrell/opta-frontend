@@ -237,6 +237,17 @@
 	}
 }
 
+.team-menu {
+	
+	&.disabled {
+		
+		table {
+			@include opacity(.4);
+			pointer-events: none;
+		}
+	}
+}
+
 
 /* Filters wrapper */
 .filters-menu-toggle {
