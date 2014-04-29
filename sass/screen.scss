@@ -13,7 +13,7 @@
 }
 
 body {
-	background-color: #eeede1;
+	background-color: $offwhite;
 	color: #efefef;
 	font-family: arial;
 	font-weight: 200;
@@ -158,6 +158,8 @@ strong {
 	#slider-range {
 		width: 90%;
 		margin: 2em auto;
+		position: relative;
+		left: -.75em;
 	}
 }
 
@@ -166,3 +168,4 @@ strong {
 @import "stats";
 @import "mainNav";
 @import "top-bar";
+@import "filters-menu";

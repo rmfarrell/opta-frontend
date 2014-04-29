@@ -270,6 +270,8 @@ strong {
 .menu #slider-range {
   width: 90%;
   margin: 2em auto;
+  position: relative;
+  left: -.75em;
 }
 
 /* line 1, ../sass/_game-navigation.scss */
@@ -579,6 +581,60 @@ strong {
   border-left: 10px solid #5ae0af;
 }
 
+/* Filters wrapper */
+/* line 242, ../sass/_passmap.scss */
+.filters-menu-toggle {
+  display: block;
+}
+
+/* Slider */
+/* line 249, ../sass/_passmap.scss */
+.ui-slider-range {
+  background: #2c2c2c none;
+}
+
+/* line 253, ../sass/_passmap.scss */
+.ui-slider-handle {
+  background: #999999 none;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+}
+
+/* line 258, ../sass/_passmap.scss */
+.ui-widget-content {
+  background: #eeede1 none;
+  -webkit-box-shadow: inset 0 0 10px #999999;
+  -moz-box-shadow: inset 0 0 10px #999999;
+  box-shadow: inset 0 0 10px #999999;
+}
+/* line 264, ../sass/_passmap.scss */
+.ui-widget-content .ui-state-default {
+  background: #2c2c2c none;
+  height: 1.6em;
+  width: 1.6em;
+  line-height: 1.6em;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1.6em;
+  top: -.7em;
+  outline: none;
+  color: #eeede1;
+  font-family: "eurofurence", arial;
+  font-weight: 200;
+  border: 2px solid #eeede1;
+}
+/* line 280, ../sass/_passmap.scss */
+.ui-widget-content .ui-state-default:hover {
+  border: 2px solid #eeede1;
+}
+/* line 285, ../sass/_passmap.scss */
+.ui-widget-content .ui-slider-range.ui-corner-all {
+  background: #2c2c2c none;
+}
+
 /* line 1, ../sass/_stats.scss */
 #stats {
   padding-bottom: 5em;
@@ -630,6 +686,16 @@ strong {
   font-size: 2.2em;
 }
 /* line 51, ../sass/_stats.scss */
+#stats .position {
+  text-transform: uppercase;
+  width: 2.1em;
+}
+/* line 56, ../sass/_stats.scss */
+#stats .player {
+  width: 8em;
+  line-height: 1.3em;
+}
+/* line 61, ../sass/_stats.scss */
 #stats table {
   font-size: 1.3em;
   margin: 0 auto;
@@ -640,7 +706,7 @@ strong {
   box-shadow: 0 0 4px #999999;
   background-color: white;
 }
-/* line 59, ../sass/_stats.scss */
+/* line 69, ../sass/_stats.scss */
 #stats table th {
   font-weight: bold;
   font-size: .85em;
@@ -650,49 +716,49 @@ strong {
   text-align: left;
   color: #666;
 }
-/* line 68, ../sass/_stats.scss */
+/* line 78, ../sass/_stats.scss */
 #stats table th.number {
   text-align: center;
 }
-/* line 73, ../sass/_stats.scss */
+/* line 83, ../sass/_stats.scss */
 #stats table a {
   cursor: pointer;
   display: block;
   width: 90%;
   padding-right: 10px;
 }
-/* line 80, ../sass/_stats.scss */
+/* line 90, ../sass/_stats.scss */
 #stats table td {
-  padding: 1.5em .45em 0 .45em;
+  padding: 1.4em .45em 0 .45em;
   padding-left: 0;
   color: #333;
 }
-/* line 86, ../sass/_stats.scss */
+/* line 96, ../sass/_stats.scss */
 #stats table td.player a {
   color: #0f63b9;
 }
-/* line 89, ../sass/_stats.scss */
+/* line 99, ../sass/_stats.scss */
 #stats table td.player a.open {
   color: white;
 }
-/* line 97, ../sass/_stats.scss */
+/* line 107, ../sass/_stats.scss */
 #stats table .number {
   text-align: right;
   width: 12%;
 }
-/* line 102, ../sass/_stats.scss */
+/* line 112, ../sass/_stats.scss */
 #stats table .percent {
   font-weight: bold;
   width: 18%;
 }
-/* line 108, ../sass/_stats.scss */
+/* line 118, ../sass/_stats.scss */
 #stats a.open {
   min-height: 1.5em;
   padding: .6em 0 .6em .5em;
   background-color: #2c2c2c;
   text-shadow: -1px -1px 2px black;
 }
-/* line 115, ../sass/_stats.scss */
+/* line 125, ../sass/_stats.scss */
 #stats .full-stats-container {
   border: none;
   color: #999;
@@ -701,11 +767,11 @@ strong {
   z-index: 2;
   padding: 0;
 }
-/* line 123, ../sass/_stats.scss */
+/* line 133, ../sass/_stats.scss */
 #stats .full-stats-container:after {
   content: "";
 }
-/* line 128, ../sass/_stats.scss */
+/* line 138, ../sass/_stats.scss */
 #stats table.full-stats {
   padding: 0;
   border: none;
@@ -716,40 +782,40 @@ strong {
   text-transform: uppercase;
   font-size: 1.2em;
 }
-/* line 137, ../sass/_stats.scss */
+/* line 147, ../sass/_stats.scss */
 #stats table.full-stats tr.border-top {
   border-top: 1px dotted #ccc;
 }
-/* line 148, ../sass/_stats.scss */
+/* line 158, ../sass/_stats.scss */
 #stats table.full-stats tr:first-child td h5 {
   border: none;
 }
-/* line 152, ../sass/_stats.scss */
+/* line 162, ../sass/_stats.scss */
 #stats table.full-stats .header {
   width: 7em;
   padding-left: 1em;
   font-size: .7em;
   text-transform: capitalize;
 }
-/* line 159, ../sass/_stats.scss */
+/* line 169, ../sass/_stats.scss */
 #stats table.full-stats td {
   padding: .4em 0;
   margin: 0;
   font-size: .7em;
 }
-/* line 164, ../sass/_stats.scss */
+/* line 174, ../sass/_stats.scss */
 #stats table.full-stats td.full-stats-key {
   text-shadow: -1px -1px 2px white;
   width: 8em;
   padding-right: 1.5em;
   text-align: right;
 }
-/* line 171, ../sass/_stats.scss */
+/* line 181, ../sass/_stats.scss */
 #stats table.full-stats td.full-stats-value {
   font-weight: bold;
   font-size: .8em;
 }
-/* line 177, ../sass/_stats.scss */
+/* line 187, ../sass/_stats.scss */
 #stats table.full-stats h5 {
   font-weight: bold;
 }

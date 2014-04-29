@@ -14,7 +14,7 @@
 				</tr>
 				<tr ng-repeat="player in team.Player">
 					<td class="player"><a ng-click="info(player, $event)">{{player.PersonName.Last}}, {{player.PersonName.First}}</a></td>
-					<td class="position">{{player["@attributes"].Position}}</td>
+					<td class="position">{{player["@attributes"].Position | positionAbbreviate}}</td>
 					<td class="successful number">{{player.stats.passes.successful}}</td>
 					<td class="failed number">{{player.stats.passes.attempts}}</td>
 					<td class="percent number">{{player.stats.passes.pct}}</td>
@@ -33,8 +33,8 @@
 					<th class="failed number">Att.</th>
 				</tr>
 				<tr ng-repeat="player in team.Player">
-					<td><a ng-click="info(player, $event)">{{player.PersonName.Last}}, {{player.PersonName.First}}</a></td>
-					<td>{{player["@attributes"].Position}}</td>
+					<td class="player"><a ng-click="info(player, $event)">{{player.PersonName.Last}}, {{player.PersonName.First}}</a></td>
+					<td class="position">{{player["@attributes"].Position | positionAbbreviate}}</td>
 					<td class="number"><strong>{{player.stats.shots.goals}}</strong></td>
 					<td class="number">{{player.stats.shots.attempts}}</td>
 				</tr>
@@ -53,8 +53,8 @@
 					<th class="clearances number">Clear.</th>
 				</tr>
 				<tr ng-repeat="player in team.Player">
-					<td><a ng-click="info(player, $event)">{{player.PersonName.Last}}, {{player.PersonName.First}}</a></td>
-					<td>{{player["@attributes"].Position}}</td>
+					<td class="player"><a ng-click="info(player, $event)">{{player.PersonName.Last}}, {{player.PersonName.First}}</a></td>
+					<td class="position">{{player["@attributes"].Position | positionAbbreviate}}</td>
 					<td class="number">{{player.stats.defense.interceptions}}</td>
 					<td class="number">{{player.stats.defense.tackles}}</td>
 					<td class="number">{{player.stats.defense.clearances}}</td>

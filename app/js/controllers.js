@@ -347,6 +347,12 @@ app.controller("passmap", function ($scope, $filter, $controller) {
 		min: 0,
 		max: 90,
 		values: [ 0, 90 ],
+		create: function(event) {
+		
+			$(event.target).find('a').eq(0).html("0'");
+		
+			$(event.target).find('a').eq(1).html("90'");
+		},
 		slide: function( event, ui ) {
 		
 			var el = $('input[name=start-time]');
@@ -360,8 +366,15 @@ app.controller("passmap", function ($scope, $filter, $controller) {
 			scopeEnd.$apply(function() {
 				scopeEnd.filterTime.end = ui.values[1];
 			});
+			
+			//update values
+			var hh = $(event.target).find('a');
+			
+			hh.eq(0).html(ui.values[0] + "'");
+			
+			hh.eq(1).html(ui.values[1] + "'");
 		}
-	});
+	}).removeClass('ui-corner-all');
 
 	$( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
 		" - $" + $( "#slider-range" ).slider( "values", 1 ) );

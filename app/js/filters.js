@@ -129,6 +129,41 @@ angular.module('eventTypeFilter', [])
 				else return true;
 		}
 	})
+	.filter('positionAbbreviate', function(){
+		
+		return function(input, expression, comparator) {
+			
+			var pos = input.toLowerCase();
+			
+			switch (pos) {
+				
+				case "goalkeeper":
+					pos = "gk";
+					break;
+				
+				case "substitute":
+					pos = "sub";
+					break;
+					
+				case "midfielder":
+					pos = "mid";
+					break;
+					
+				case "striker":
+					pos = "att";
+					break;
+					
+				case "defender":
+					pos = "def";
+					break;
+				
+				default: 
+					pos = "";							
+			}
+			
+			return pos;
+		}
+	})
 	.filter('playerText', function() {
 		
 		return function(input, expression, comparator) {
