@@ -29,19 +29,20 @@
 	</div>
 	
 	<div id="filters-menu">
-		<a ng-click="toggleFiltersMenu()" class="filters-menu-toggle"><span class="filter-shape">filters</span></a>
+		<!-- <a ng-click="toggleFiltersMenu()" class="filters-menu-toggle"><span class="filter-shape">filters</span></a> -->
 		<form class="team-players-filters">
 			<fieldset>
-				<label ng-repeat="item in filterTeams" >
-					<input type="radio" value="{{item[0]}}" data-ng-model="filterItem.store">
-					{{item[1]}}<br/>
-				</label>
-				<label>
+				<!-- <label ng-repeat="team in filterTeams" >
+									<input type="checkbox" value="{{team[0]}}" ng-model="requestedTeams" ng-checked="true">
+									{{team[1]}} <br/>
+								</label> -->
+				<!-- <label>
 					<input type="radio" value="0" data-ng-model="filterItem.store"/> Both
-				</label>
+				</label> -->
 			</fieldset>
 			<fieldset id="playerfilter">
-				<div ng-repeat="team in teams" class="{{team['@attributes'].uID}} team-menu"><h4>{{team.Name}}</h4>
+				<div ng-repeat="team in teams" class="{{team['@attributes'].uID}} team-menu">
+					<h4><input type="checkbox" value="{{team['@attributes'].uID}}" ng-model="requestedTeams" ng-checked="true" ng-click="filterTeams(this)"> {{team.Name}}</h4>
 					<table>
 						<tr ng-repeat="player in team.Player">
 							<td><input ng-model="filterPlayers[player['@attributes'].uID]" type="checkbox" data-ng-true-value="{{player['@attributes'].uID}}"></td>

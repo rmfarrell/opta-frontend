@@ -175,6 +175,8 @@ app.controller("stats", function ($scope, $http, $route, $filter, $controller) {
 
 app.controller("passmap", function ($scope, $filter, $controller) {
 	
+	var requestedTeam = [];
+	
 	//Inherit gets from pullData controller
 	$controller("pullData", {$scope: $scope});
 
@@ -182,11 +184,22 @@ app.controller("passmap", function ($scope, $filter, $controller) {
 
 	$scope.filterPlayers = {};
 
-	$scope.filterTeams = [];
-	
-	//$scope.players = [];
-	
-	$scope.filterTeams = [];
+	$scope.filterTeams = function() {
+		
+		if (event.target.checked) {
+			
+			//Add requested team to the array
+			requestedTeam.push(event.target.value)
+			
+		} else {
+			
+			//Remove team from array of requested teams
+			requestedTeam.forEach(function(team, index, arr) {
+
+				if (team === event.target.value) return arr.splice(index,1) //console.log(index)
+			});
+		}
+	};
 
 	$scope.filterTime = {
 	
@@ -219,15 +232,13 @@ app.controller("passmap", function ($scope, $filter, $controller) {
 			var t = []
 
 			t.push(teamID, teamName);
-
-			$scope.filterTeams.push(t);
+			
+			requestedTeam.push(t[0]);
 		});
 	});
 
 	$scope.mapFilter = function (data) {
-	
-		var requestedTeam = $scope.filterItem.store;
-	
+		
 		var matchedPlayer = 'p' + data["@attributes"].player_id;
 	
 		var requestedPlayers = [];
@@ -250,16 +261,20 @@ app.controller("passmap", function ($scope, $filter, $controller) {
 	
 		//Is the action within specified time slice
 		var inRange = (currentMinute >= $scope.filterTime.start && currentMinute <= $scope.filterTime.end) ? true : false;
-	
-		//Is the action part of the correct team?
-		if (requestedTeam != 0) {
 		
-			requestedTeam = parseInt(requestedTeam.split('t')[1]);
+		function isTeam(t) {
+			
+			//Both teams selected
+			if (requestedTeam.length === 2) return true;
+				
+				//Return false if array is empty
+				else if (requestedTeam.length === 0) return false;
+				
+				//Filter based on selectd team if only one
+				else return requestedTeam[0] === ("t" + t);
 		}
 	
-		if (data["@attributes"].team_id == requestedTeam && doPlayersMatch && inRange) return true;
-		
-	    else if (requestedTeam == 0 && doPlayersMatch && inRange) return true;
+		if (isTeam(data["@attributes"].team_id) && doPlayersMatch && inRange) return true;
 		
 	    else return false;
 	};
