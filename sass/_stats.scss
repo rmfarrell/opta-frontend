@@ -78,9 +78,20 @@
 		}
 		
 		td {
-			padding: 1.2em .45em 0 .45em;
+			padding: 1.5em .45em 0 .45em;
 			padding-left: 0;
 			color: #333;
+			
+			
+			&.player a {
+				color: #0f63b9;
+				
+				&.open {
+					color: white;
+				}
+				
+				&:after {}
+			}
 		}
 		
 		.number {
@@ -95,7 +106,6 @@
 	}
 	
 	a.open {
-		color: white;
 		min-height: 1.5em;
 		padding: .6em 0 .6em .5em;
 		background-color: $pitch;
@@ -153,7 +163,9 @@
 			
 			&.full-stats-key {
 				@include text-shadow(-1px -1px 2px #fff);
-				width: 10em;
+				width: 8em;
+				padding-right: 1.5em;
+				text-align: right;
 			}
 			
 			&.full-stats-value {
