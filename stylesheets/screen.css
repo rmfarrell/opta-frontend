@@ -1099,14 +1099,13 @@ strong {
   margin: 0;
   padding: .3em .3em .3em 1em;
   font-size: 2.5em;
-  background-color: pink;
   font-weight: 200;
-  color: white;
+  color: #eeede1;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
   position: relative;
   line-height: 1em;
 }
-/* line 18, ../sass/_filters-menu.scss */
+/* line 17, ../sass/_filters-menu.scss */
 #filters-menu h4 .checkbox {
   position: absolute;
   top: 1em;
@@ -1114,39 +1113,48 @@ strong {
   border: 1px solid red;
   height: 2em;
 }
-/* line 27, ../sass/_filters-menu.scss */
+/* line 26, ../sass/_filters-menu.scss */
 #filters-menu .team-menu {
+  position: relative;
   display: block;
   width: 90%;
   max-width: 30em;
   margin: 0 auto;
   padding: 0 0 0;
-  background-color: rgba(255, 255, 255, 0.8);
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  background-color: rgba(20, 20, 20, 0.9);
   -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
   -moz-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
-  color: #2c2c2c;
+  z-index: 30;
+  color: #eeede1;
+  border: 3px solid #eeede1;
 }
-/* line 40, ../sass/_filters-menu.scss */
+/* line 41, ../sass/_filters-menu.scss */
 #filters-menu table {
   width: 94%;
   margin: .75em 3% 1.5em;
+  font-size: 1.1em;
 }
-/* line 45, ../sass/_filters-menu.scss */
+/* line 47, ../sass/_filters-menu.scss */
 #filters-menu td {
   padding: .3em 0;
   vertical-align: top;
 }
-/* line 50, ../sass/_filters-menu.scss */
+/* line 52, ../sass/_filters-menu.scss */
 #filters-menu .player {
   padding-right: .7em;
 }
-/* line 54, ../sass/_filters-menu.scss */
+/* line 56, ../sass/_filters-menu.scss */
 #filters-menu .check {
   width: 2em;
   text-align: center;
 }
-/* line 59, ../sass/_filters-menu.scss */
+/* line 61, ../sass/_filters-menu.scss */
 #filters-menu .position {
   width: 2.6em;
   padding: inherit .2em;
@@ -1154,7 +1162,7 @@ strong {
   text-transform: uppercase;
 }
 @media screen and (min-width: 600px) {
-  /* line 68, ../sass/_filters-menu.scss */
+  /* line 70, ../sass/_filters-menu.scss */
   #filters-menu .team-menu {
     display: inline-block;
     width: 23em;

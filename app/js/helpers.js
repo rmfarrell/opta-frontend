@@ -1,10 +1,17 @@
+function parallax(selector, speed, max) {
+	
+	var scrolled = $(window).scrollTop();
+	
+	console.log(scrolled)
+	
+	var newPos = Math.min(scrolled * speed, max)
+	
+	$(selector).css('top', -newPos + 'px');
+}
+
 function numberWithCommas(x) {
 	var x = x || 'unknown';
 	return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-}
-
-function alertz() {
-	alert('test')
 }
 
 function FullStats(playerObject, ev) {

@@ -81,8 +81,6 @@ app.controller("pullData", function ($scope, $route, gameService) {
 	
 	//populate $scope.events
 	$scope.getEvents.success(function(data) {
-		
-		console.log($scope.teams)
 
 		var _richEvents = [];
 
@@ -230,7 +228,6 @@ app.controller("passmap", function ($scope, $filter, $controller) {
 		$passInfo.fadeOut();
 	});
 	
-	
 	$scope.getGame.success(function(data) {
 
 		//populate global var teams with array of team ids and team names
@@ -245,6 +242,15 @@ app.controller("passmap", function ($scope, $filter, $controller) {
 			t.push(teamID, teamName);
 			
 			requestedTeam.push(t[0]);
+		});
+	});
+	
+	//View is ready
+	$scope.$on('$viewContentLoaded', function() {
+		
+		//Add parallax effect to team menu
+		$(window).scroll(function(e){
+		    parallax('.team-menu', 2, window.innerHeight / 2);
 		});
 	});
 
