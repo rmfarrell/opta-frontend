@@ -61,9 +61,12 @@ app.controller("pullData", function ($scope, $route, gameService) {
 		$scope.attendance = numberWithCommas(data.SoccerDocument.MatchData.MatchInfo.Attendance);
 		
 		//Assign a home team
-		homeTeam = 	$scope.teams[0]["@attributes"].uID.split('t')[1];
+		homeTeam = $scope.teams[0]["@attributes"].uID.split('t')[1];
 
 		$.each($scope.teams, function(i,team) {
+			
+			//attach team colors
+			team.color = (team["@attributes"].uID === ("t" + homeTeam)) ? 40 : 190;
 			
 			//Instantiate goals variable so we know the score
 			team.goals = 0;
@@ -78,6 +81,8 @@ app.controller("pullData", function ($scope, $route, gameService) {
 	
 	//populate $scope.events
 	$scope.getEvents.success(function(data) {
+		
+		console.log($scope.teams)
 
 		var _richEvents = [];
 
@@ -321,15 +326,13 @@ app.controller("passmap", function ($scope, $filter, $controller) {
 			var w = pythagorize(toCoords, fromCoords);
 
 			var ang = calculateAngle(toCoords, fromCoords);
-
-			var awayColorOffset = (atts.team_id === homeTeam) ? 40 : 190;
+			
+			var isHome = (atts.team_id === homeTeam) ? 0 : 1;
 
 			ang = Math.round(ang);
 
-			//var rgbVar = pickColor(atts.min, atts.sec);d
-
 			var isSuccessOffset = (isSuccessfullAction(this.event["@attributes"])) ? 65 : 30;
-
+			
 			return {
 				'width' : w + '%',
 				'-webkit-transform' : 'rotate(' + ang + 'deg)',
@@ -337,8 +340,8 @@ app.controller("passmap", function ($scope, $filter, $controller) {
 				'-ms-transform' : 'rotate(' + ang + 'deg)',
 				'left' : fromCoords.left + '%',
 				'top' : fromCoords.top + '%',
-				'background-color' : 'hsla('  + awayColorOffset + ', 80%,'  + isSuccessOffset + '%, 1)',
-				'border-color' : 'hsla('  + awayColorOffset + ', 80%,'  + isSuccessOffset + '%, 1)'
+				'background-color' : 'hsla('  + $scope.teams[isHome].color + ', 80%,'  + isSuccessOffset + '%, 1)',
+				'border-color' : 'hsla('  + $scope.teams[isHome].color + ', 80%,'  + isSuccessOffset + '%, 1)'
 			};
 		};
 

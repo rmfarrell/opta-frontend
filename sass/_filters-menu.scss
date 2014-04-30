@@ -1,4 +1,74 @@
 #filters-menu {
+	text-align: center;
+	width: 90%;
+	margin: 0 auto;
 	
+	h4 {
+		text-align: left;
+		margin: 0;
+		padding: .3em .3em .3em 1em;
+		font-size: 2.5em;
+		background-color: pink;
+		font-weight: 200;
+		color: white;
+		@include text-shadow(1px 1px 1px rgba(0,0,0,.5));
+		position: relative;
+		line-height: 1em;
+		
+		.checkbox {
+			position: absolute;
+			top: 1em;
+			left: .5em;
+			border: 1px solid red;
+			height: 2em;
+		}
+	}
 	
+	.team-menu {
+		display: block;
+		width: 90%;
+		max-width: 30em;
+		margin: 0 auto;
+		padding: 0 0 0;
+		background-color: rgba(255,255,255,.8);
+		@include box-shadow(0px 0px 10px rgba(0,0,0,.4));
+		//background-color: $pitch;
+		//@include opacity(.8);
+		color: $pitch;
+	}
+	
+	table {
+		width: 94%;
+		margin: .75em 3% 1.5em;
+	}	
+		
+	td {
+		padding: .3em 0;
+		vertical-align: top;
+	}
+	
+	.player {
+		padding-right: .7em;
+	}
+	
+	.check {
+		width: 2em;
+		text-align: center;
+	}
+	
+	.position {
+		width: 2.6em;
+		padding: inherit .2em;
+		text-align: left;
+		text-transform: uppercase;
+		//width: 2em;
+	}
+	
+	@media screen and (min-width: 600px) {
+		.team-menu {
+			display: inline-block;
+			width: 23em;
+			margin: 0 2%;
+		}
+	}
 }

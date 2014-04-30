@@ -208,7 +208,7 @@ strong {
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
 }
 
-/* line 106, ../sass/screen.scss */
+/* line 104, ../sass/screen.scss */
 .v {
   display: inline-block;
   font-weight: 200;
@@ -221,17 +221,17 @@ strong {
   border-bottom: 2px solid #efefef;
 }
 
-/* line 118, ../sass/screen.scss */
+/* line 116, ../sass/screen.scss */
 .no-break {
   white-space: nowrap;
 }
 
-/* line 122, ../sass/screen.scss */
+/* line 120, ../sass/screen.scss */
 .fixed {
   position: fixed;
 }
 
-/* line 126, ../sass/screen.scss */
+/* line 124, ../sass/screen.scss */
 .menu {
   color: #2c2c2c;
   font-size: 1.25em;
@@ -239,7 +239,7 @@ strong {
   margin: 0;
   clear: both;
 }
-/* line 132, ../sass/screen.scss */
+/* line 130, ../sass/screen.scss */
 .menu:before {
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #343434), color-stop(100%, transparent));
   background-image: -webkit-linear-gradient(top, #343434, transparent);
@@ -251,22 +251,22 @@ strong {
   height: 4px;
   width: 100%;
 }
-/* line 141, ../sass/screen.scss */
+/* line 139, ../sass/screen.scss */
 .menu .team-menu {
   display: inline-block;
   margin: 0 6%;
 }
-/* line 145, ../sass/screen.scss */
+/* line 143, ../sass/screen.scss */
 .menu .team-menu table {
   margin: 0 auto;
 }
-/* line 152, ../sass/screen.scss */
+/* line 150, ../sass/screen.scss */
 .menu h4 {
   font-size: 1.5em;
   font-weight: bold;
   margin: 2em .5em .5em;
 }
-/* line 158, ../sass/screen.scss */
+/* line 156, ../sass/screen.scss */
 .menu #slider-range {
   width: 90%;
   margin: 2em auto;
@@ -1084,5 +1084,80 @@ strong {
     background: transparent none;
     width: 50%;
     letter-spacing: 0;
+  }
+}
+
+/* line 1, ../sass/_filters-menu.scss */
+#filters-menu {
+  text-align: center;
+  width: 90%;
+  margin: 0 auto;
+}
+/* line 6, ../sass/_filters-menu.scss */
+#filters-menu h4 {
+  text-align: left;
+  margin: 0;
+  padding: .3em .3em .3em 1em;
+  font-size: 2.5em;
+  background-color: pink;
+  font-weight: 200;
+  color: white;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+  position: relative;
+  line-height: 1em;
+}
+/* line 18, ../sass/_filters-menu.scss */
+#filters-menu h4 .checkbox {
+  position: absolute;
+  top: 1em;
+  left: .5em;
+  border: 1px solid red;
+  height: 2em;
+}
+/* line 27, ../sass/_filters-menu.scss */
+#filters-menu .team-menu {
+  display: block;
+  width: 90%;
+  max-width: 30em;
+  margin: 0 auto;
+  padding: 0 0 0;
+  background-color: rgba(255, 255, 255, 0.8);
+  -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+  color: #2c2c2c;
+}
+/* line 40, ../sass/_filters-menu.scss */
+#filters-menu table {
+  width: 94%;
+  margin: .75em 3% 1.5em;
+}
+/* line 45, ../sass/_filters-menu.scss */
+#filters-menu td {
+  padding: .3em 0;
+  vertical-align: top;
+}
+/* line 50, ../sass/_filters-menu.scss */
+#filters-menu .player {
+  padding-right: .7em;
+}
+/* line 54, ../sass/_filters-menu.scss */
+#filters-menu .check {
+  width: 2em;
+  text-align: center;
+}
+/* line 59, ../sass/_filters-menu.scss */
+#filters-menu .position {
+  width: 2.6em;
+  padding: inherit .2em;
+  text-align: left;
+  text-transform: uppercase;
+}
+@media screen and (min-width: 600px) {
+  /* line 68, ../sass/_filters-menu.scss */
+  #filters-menu .team-menu {
+    display: inline-block;
+    width: 23em;
+    margin: 0 2%;
   }
 }

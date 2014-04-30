@@ -32,12 +32,15 @@
 		<form class="team-players-filters">
 			<fieldset id="playerfilter">
 				<div ng-repeat="team in teams" class="{{team['@attributes'].uID}} team-menu">
-					<h4><input type="checkbox" value="{{team['@attributes'].uID}}" ng-model="requestedTeams" ng-checked="true" ng-click="filterTeams(this)"> {{team.Name}}</h4>
+					<h4 style="background-color: hsla({{team.color}}, 80%, 65%, 1);">
+						<input class="checkbox" type="checkbox" value="{{team['@attributes'].uID}}" ng-model="requestedTeams" ng-checked="true" ng-click="filterTeams(this)">
+						{{team.Name}}
+					</h4>
 					<table>
 						<tr ng-repeat="player in team.Player">
-							<td><input ng-model="filterPlayers[player['@attributes'].uID]" type="checkbox" data-ng-true-value="{{player['@attributes'].uID}}"></td>
-							<td><strong>{{player.PersonName.First}} {{player.PersonName.Last}}</strong></td>
-							<td>{{player["@attributes"].Position | positionAbbreviate}}</td>
+							<td class="check"><input ng-model="filterPlayers[player['@attributes'].uID]" type="checkbox" data-ng-true-value="{{player['@attributes'].uID}}"></td>
+							<td class="player"><strong>{{player.PersonName.First}} {{player.PersonName.Last}}</strong></td>
+							<td class="position">{{player["@attributes"].Position | positionAbbreviate}}</td>
 						</tr>
 					</table>
 				</div>
