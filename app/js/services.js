@@ -6,13 +6,42 @@ app.factory('gameService', function($http) {
 		
 		getGameInfo : function(game) {
 			
+			/*
 			var url = '../get_data.php?game_id=' + game + '&feed_type=f7';
+			var url = '../legacy-content/correct-pairs/g1/game.json'
+			var url = '../legacy-content/correct-pairs/g2/game.json'
+			var url = '../legacy-content/correct-pairs/g3/game.json';
+			var url = '../legacy-content/correct-pairs/g4/game.json';
+			var url = '../legacy-content/correct-pairs/g5/game.json';
+			var url = '../legacy-content/correct-pairs/g6/game.json';
+			var url = '../legacy-content/correct-pairs/g7/game.json';
+			var url = '../legacy-content/correct-pairs/g8/game.json';
+			*/
+			
+			var game = 8;
+			
+			var url = '../legacy-content/correct-pairs/g' + game + '/game.json';
+			
 			
 			return $http.get(url)
 		},
 		
 		getEventInfo: function(game) {
+			/*
 			var url = '../get_data.php?game_id=' + game + '&feed_type=f24';
+			var url = '../legacy-content/correct-pairs/g1/event.json';
+			var url = '../legacy-content/correct-pairs/g2/event.json';
+			var url = '../legacy-content/correct-pairs/g3/event.json';
+			var url = '../legacy-content/correct-pairs/g4/event.json';
+			var url = '../legacy-content/correct-pairs/g5/event.json';
+			var url = '../legacy-content/correct-pairs/g6/event.json';
+			var url = '../legacy-content/correct-pairs/g7/event.json';
+			var url = '../legacy-content/correct-pairs/g8/event.json';
+			*/
+			
+			var game = 8;
+			
+			var url = '../legacy-content/correct-pairs/g' + game + '/event.json';
 			
 			return $http.get(url);
 		}
