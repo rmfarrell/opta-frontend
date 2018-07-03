@@ -8,7 +8,7 @@ Data comes from Opta's sandbox mode which reflects old data from Bundesliga 2.
 
 All drawing is done with normal HTML. Site includes no images.
 
-## [Demo]
+## Demo
 [Here] (http://ryanmfarrell.com/opta)
 
 ## Update
